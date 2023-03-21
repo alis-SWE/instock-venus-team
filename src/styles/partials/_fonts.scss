@@ -1,8 +1,18 @@
 @font-face {
     font-family: "Titillium Web";
-    src: url("../assets/fonts/woff2/AvenirNextLTPro-Regular.woff2") format("woff2"), 
-        url("../assets/fonts/woff/AvenirNextLTPro-Regular.woff") format("woff");
-    font-weight: normal;
-    font-style: 400;
+    src: url("../../assets/fonts/TitilliumWeb-Regular.woff") format("woff"), 
+        url("../../assets/fonts/TitilliumWeb-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+
+  }
+
+
+  @font-face {
+    font-family: "Titillium Web";
+    src: url("../../assets/fonts/TitilliumWeb-SemiBold.woff") format("woff"), 
+        url("../../assets/fonts/TitilliumWeb-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
 
   }
