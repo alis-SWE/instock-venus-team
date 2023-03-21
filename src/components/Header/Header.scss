@@ -1,6 +1,6 @@
-@use "../../styles/partials/fonts";
-@use "../../styles/partials/variables" as *;
-@use "../../styles/partials/mixins" as *;
+// @use "../../styles/partials/fonts";
+// @use "../../styles/partials/variables" as *;
+// @use "../../styles/partials/mixins" as *;
 
 .header {
     height: 12.5rem;
@@ -8,9 +8,9 @@
     display: flex;
     flex-direction: column;
 
-    @include tablet {
-        flex-direction: row;
-    }
+    // @include tablet {
+    //     flex-direction: row;
+    // }
 
     &__logo {
         height: 1.75rem;
