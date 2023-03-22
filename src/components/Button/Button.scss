@@ -1,0 +1,32 @@
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.button {
+    background-color: $Instock-Indigo;
+    width: 100%;
+    border-radius: 1.125rem;
+    position: relative;
+    border: none;
+
+    &:hover {
+        background-color: $Graphite;
+    }
+
+    @include tablet {
+        padding: 0 1rem 0 1rem;
+        width: auto;
+    }
+
+    &__text {
+        font-family: 'Titillium Web', sans-serif;
+        font-size: .8125rem;
+        font-weight: 400;
+        line-height: 2.25rem;
+        text-decoration: none;
+        display: block;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+}
