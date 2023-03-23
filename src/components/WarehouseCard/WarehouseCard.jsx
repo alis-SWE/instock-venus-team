@@ -11,7 +11,7 @@ export default function WarehouseCard( { warehouse, address, city, country,conta
             <div className="warehouse__col-1"> 
                 <div className="warehouse__id-container">
                     <p className="warehouse__label">WAREHOUSE</p>
-                    <Link to={`/${id}`} style={{ display: 'flex', alignItems: 'center' }}>
+                    <Link to={`warehouse/${id}`} style={{ display: 'flex', alignItems: 'center' }}>
                         <p>{warehouse}</p>
                         <img src={arrow} alt="delete icon"/>
                     </Link>
@@ -34,7 +34,7 @@ export default function WarehouseCard( { warehouse, address, city, country,conta
                     <p>{contactPhone}</p>
                     <p>{contactEmail}</p>
                 </div>
-                <Link className="warehouse__edit">
+                <Link to={`warehouse/edit/${id}`} className="warehouse__edit">
                     <img src={editIcon} alt=""/>
                 </Link>
             </div>
@@ -42,7 +42,7 @@ export default function WarehouseCard( { warehouse, address, city, country,conta
                 <Link className="warehouse__delete--tablet">
                     <img src={deleteIcon} alt="delete icon"/>
                 </Link>
-                <Link className="warehouse__edit--tablet">
+                <Link to={`warehouse/edit/${id}`} className="warehouse__edit--tablet">
                     <img src={editIcon} alt="edit icon"/>
                 </Link>
             </div>
