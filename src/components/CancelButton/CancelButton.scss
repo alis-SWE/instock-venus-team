@@ -1,0 +1,35 @@
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.cancel-button {
+    background-color: $White;
+    width: 100%;
+    border-radius: 1.125rem;
+    position: relative;
+    border: 1px solid $Cloud;
+
+    &:hover {
+        border-color: $Instock-Indigo;
+    }
+
+    @include tablet {
+        width: 72px;
+    }
+
+    &__text {
+        font-family: 'Titillium Web', sans-serif;
+        font-size: .8125rem;
+        font-weight: 400;
+        line-height: 2.25rem;
+        text-decoration: none;
+        display: block;
+        color: $Slate;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+            color: $Instock-Indigo;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.footer {
+    width: 100%;
+    background-color: $Light-Grey;
+
+    @include tablet {
+        // position: fixed;
+        // bottom: 0;
+    }
+    
+    &__text{
+        font-size: .6875rem;
+        font-family: 'Titillium Web', sans-serif;
+        color: $Slate;
+        padding: 2.5rem 0 2.5rem 0;
+        text-align: center;
+        margin: 0 auto;
+
+        @include tablet {
+            font-size: .75rem;
+        }
+    }
+}

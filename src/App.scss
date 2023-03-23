@@ -1,0 +1,88 @@
+@use "./styles/partials/fonts";
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/mixins" as *;
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: $Instock-Black;
+    background-color: $Light-Grey;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+
+    @include tablet {
+        font-size: 2rem;
+        line-height: 2.5rem;
+    }
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin-bottom: 1.5rem;
+
+    @include tablet {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        margin-bottom: 2rem
+    }
+}
+
+h3 {
+    font-weight: 600;
+    font-size: .8125rem;
+    line-height: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: .25rem;
+
+    @include tablet {
+        font-size: .875rem;
+        line-height: 1.375rem;
+        margin-top: 1.5rem;
+    }
+}
+
+h4 {
+    color: $Slate;
+    font-weight: 600;
+    font-size: .6875rem;
+    line-height: 1rem;
+
+    @include tablet {
+        font-size: .75rem;
+        line-height: 1.125rem;
+    }
+}
+
+p {
+    font-size: .8125rem;
+    line-height: 1.25rem;
+
+    @include tablet {
+        font-size: .875rem;
+        line-height: 1.375rem;
+    }
+}
+
+input {
+    font-family: 'Titillium Web', sans-serif;
+    border: solid $Cloud 1px;
+    height: 2.25rem;
+    border-radius: 1.125rem;
+    padding-left: 1rem;
+    width: 100%;
+}
+
+input::placeholder {
+    color: $Slate;
+}

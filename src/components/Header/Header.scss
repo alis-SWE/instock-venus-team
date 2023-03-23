@@ -1,0 +1,81 @@
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.header {
+    background-color: $Graphite;
+
+    &__content {
+        height: 12.5rem;
+        padding: 1.5rem 1rem 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 65.75rem;
+        margin: 0 auto;
+    
+        @include tablet {
+            height: 11.625rem;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+            padding: 2rem 2rem 0 2rem;
+        }
+    }
+
+    &__logo {
+        height: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__nav-list {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+
+        @include tablet {
+            width: 14.375rem;
+        }
+    }
+
+    &__nav-link {
+        font-size: .8125rem;
+        font-family: 'Titillium Web', sans-serif;
+        color: $Cloud;
+        text-decoration: none;
+        line-height: 2.25rem;
+        border-radius: 1.125rem;
+        width: 100%;
+        text-align: center;
+
+        @include tablet {
+            line-height: 2.375rem;
+            width: 6.6875rem;
+            font-size: .875rem;
+        }
+
+        &:hover{
+            background-color: $Instock-Black;
+        }
+
+        &--active {
+            background-color: $Instock-Black;
+            color: $White;
+            font-size: .8125rem;
+            font-family: 'Titillium Web', sans-serif;
+            text-decoration: none;
+            line-height: 2.25rem;
+            border-radius: 1.125rem;
+            width: 100%;
+            text-align: center;
+
+            @include tablet {
+                line-height: 2.375rem;
+                width: 6.6875rem;
+                font-size: .875rem;
+            }
+        }
+    }
+}
