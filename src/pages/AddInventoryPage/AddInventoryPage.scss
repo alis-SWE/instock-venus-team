@@ -72,7 +72,7 @@
     &__radio-container {
         display: flex;
         flex-direction: row;
-        justify-content: start;
+        justify-content: flex-start;
         align-items: center;
     }
 
@@ -85,6 +85,14 @@
 
         @include tablet {
             justify-content: end;
+        }
+    }
+    
+    &__button {
+        width: 100%;
+
+        @include tablet {
+            width: auto;
         }
     }
 }
