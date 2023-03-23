@@ -90,3 +90,45 @@ input {
 input::placeholder {
     color: $Slate;
 }
+
+select {
+    font-family: 'Titillium Web', sans-serif;
+    border: solid $Cloud 1px;
+    height: 2.25rem;
+    border-radius: 1.125rem;
+    padding-left: 1rem;
+    background-position: right 0.5rem center;
+    width: 100%;
+    appearance: none;
+    background-image: url("./assets/icons/arrow_drop_down-24px.svg");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 2em;
+}
+
+textarea {
+    font-family: 'Titillium Web', sans-serif;
+    border: solid $Cloud 1px;
+    height: 2.25rem;
+    border-radius: 1.125rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;
+    width: 100%;
+    resize: none;
+    height: 7.75rem;
+}
+
+textarea::placeholder {
+    color: $Slate;
+}
+
+.radio {
+    display: inline-block;
+    width: 1rem;
+    margin-right: 0.5rem
+}
+
+.radio-label {
+    width: 100%;
+}
