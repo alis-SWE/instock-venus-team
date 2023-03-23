@@ -4,6 +4,7 @@ import WarehousesPage from './pages/WarehousesPage/WarehousesPage';
 import InventoryPage from './pages/InventoryPage/InventoryPage';
 import AddWarehousePage from './pages/AddWarehousePage/AddWarehousePage';
 import EditWarehousePage from './pages/EditWarehousePage/EditWarehousePage';
+import EditInventoryItem from './pages/EditInventoryItem/EditInventoryItem';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
@@ -21,6 +22,7 @@ function App() {
         <Route path='*' element={<NotFoundPage/>}></Route>
         <Route path='/warehouse/add' element={<AddWarehousePage/>}></Route>
         <Route path='/warehouse/edit/:id' element={<EditWarehousePage/>}></Route>
+        <Route path='/inventory/edit/:id' element={<EditInventoryItem/>}></Route>
 
     </Routes>
     <Footer />
