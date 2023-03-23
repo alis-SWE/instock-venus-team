@@ -15,7 +15,6 @@ function App() {
 <BrowserRouter>
 <Header/>
    <Routes>
-   
        <Route path='/' element={<WarehousesPage/>}></Route>
         <Route path='/inventory' element={<InventoryPage/>}></Route>
         <Route path='*' element={<NotFoundPage/>}></Route>
