@@ -4,6 +4,7 @@ import Button from "../../components/Button/Button";
 import "./WarehousesPage.scss"
 import WarehouseCard from "../../components/WarehouseCard/WarehouseCard";
 import searchIcon from "../../assets/icons/search-24px.svg"
+import { Link } from "react-router-dom";
 
 const WarehousesPage = () => {
 
@@ -38,7 +39,10 @@ const WarehousesPage = () => {
                         <input id="warehouse-search" name="warehouses__search" placeholder="Search..."></input>
                         <img src={searchIcon} alt="Search Icon" class="warehouses__search-icon"/>
                     </div>
-                    <Button className="warehouse__btn" buttonText="+ Add  New Warehouse"/>
+                    <Link to={`/warehouse/add`}>
+                        <Button className="warehouse__btn" buttonText="+ Add  New Warehouse"/>
+                    </Link>
+                
                 </div>
                 <div className='warehouses__labels--tablet'>
                     <div className="warehouses__label--tablet">WAREHOUSE</div>

@@ -9,32 +9,30 @@ import WarehouseDetailPage from './pages/WarehouseDetailPage/WarehouseDetailPage
 import EditInventoryItem from './pages/EditInventoryItem/EditInventoryItem';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import InventoryItemPage from './pages/InventoryItemPage/InventoryItemPage';
 
 import './App.scss'
 
 
 function App() {
   return (
- 
-<div className="App">
-<BrowserRouter>
-<Header/>
-   <Routes>
-       <Route path='/' element={<WarehousesPage/>}></Route>
-        <Route path='/inventory' element={<InventoryPage/>}></Route>
-        <Route path='/inventory/add' element={<AddInventoryPage/>}></Route>
-        <Route path='*' element={<NotFoundPage/>}></Route>
-        <Route path='/warehouse/add' element={<AddWarehousePage/>}></Route>
-        <Route path='/warehouse/:id' element={<WarehouseDetailPage/>}></Route>
-        <Route path='/warehouse/edit/:id' element={<EditWarehousePage/>}></Route>
-        <Route path='/inventory/edit/:id' element={<EditInventoryItem/>}></Route>
-
-    </Routes>
-    <Footer />
-    </BrowserRouter>
-</div>
-
-
+  <div className="App">
+  <BrowserRouter>
+    <Header/>
+    <Routes>
+        <Route path='/' element={<WarehousesPage/>}></Route>
+          <Route path='/inventory' element={<InventoryPage/>}></Route>
+          <Route path='/inventory/:id' element={<InventoryItemPage/>}></Route>
+          <Route path='/inventory/add' element={<AddInventoryPage/>}></Route>
+          <Route path='*' element={<NotFoundPage/>}></Route>
+          <Route path='/warehouse/add' element={<AddWarehousePage/>}></Route>
+          <Route path='/warehouse/:id' element={<WarehouseDetailPage/>}></Route>
+          <Route path='/warehouse/edit/:id' element={<EditWarehousePage/>}></Route>
+          <Route path='/inventory/edit/:id' element={<EditInventoryItem/>}></Route>
+      </Routes>
+      <Footer />
+      </BrowserRouter>
+  </div>
 
   );
 }
