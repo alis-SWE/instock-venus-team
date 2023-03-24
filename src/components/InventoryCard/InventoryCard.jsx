@@ -23,7 +23,7 @@ export default function InventoryCard({ id, itemName, description, warehouseId,c
 
 
     useEffect(() => {
-        if(warehouse === "" ){
+        if(warehouse === "" ){  
             fetchWarehouse();
         } else {
 
