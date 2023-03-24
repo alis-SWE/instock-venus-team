@@ -23,11 +23,11 @@ function App() {
        <Route path='/' element={<WarehousesPage/>}></Route>
         <Route path='/inventory' element={<InventoryPage/>}></Route>
         <Route path='/inventory/add' element={<AddInventoryPage/>}></Route>
-        <Route path='*' element={<NotFoundPage/>}></Route>
         <Route path='/warehouse/add' element={<AddWarehousePage/>}></Route>
         <Route path='/warehouse/:id' element={<WarehouseDetailPage/>}></Route>
         <Route path='/warehouse/edit/:id' element={<EditWarehousePage/>}></Route>
         <Route path='/inventory/edit/:id' element={<EditInventoryItem/>}></Route>
+        <Route path='*' element={<NotFoundPage/>}></Route>
 
     </Routes>
     <Footer />
