@@ -8,8 +8,10 @@ import FormError from '../../components/FormError/FormError'
 import backArrow from '../../assets/icons/arrow_back-24px.svg'
 import './AddWarehousePage.scss'
 
-const API_URL = process.env.REACT_APP_SERVER_URL;
+// API variable
+const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:8080";
 
+// Function to validate email inputs
 function validateEmail(email) {
     var re = /\S+@\S+\.\S+/; //eslint-disable-line
     return re.test(email);
@@ -19,6 +21,7 @@ export default function AddWarehousePage() {
 
     const navigate = useNavigate();
 
+    // Input error state
     let [warehouseNameError, setWarehouseNameError] = useState(false);
     let [warehouseAddressError, setWarehouseAddressError] = useState(false);
     let [warehouseCityError, setWarehouseCityError] = useState(false);
@@ -28,6 +31,7 @@ export default function AddWarehousePage() {
     let [contactPhoneError, setContactPhoneError] = useState(false);
     let [contactEmailError, setContactEmailError] = useState(false);
 
+    // On Submit handler to post new warehouse to DB
     function handleOnSubmit(event) {
         event.preventDefault();
 
@@ -89,6 +93,7 @@ export default function AddWarehousePage() {
             setContactEmailError(false);
         }
 
+        // API call to post warehouse object to DB
         axios.post(`${API_URL}/warehouse`, {
             name: name,
             streetAddress: streetAddress,

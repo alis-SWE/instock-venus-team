@@ -8,14 +8,17 @@ import FormError from '../../components/FormError/FormError'
 import backArrow from '../../assets/icons/arrow_back-24px.svg'
 import './AddInventoryPage.scss'
 
-const API_URL = process.env.REACT_APP_SERVER_URL;
+//API variable
+const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:8080";
 
 export default function AddInventoryPage() {
 
     const navigate = useNavigate();
 
+    // Warehouse List state variable
     let [warehouseList, setWarehouseList] = useState([]);
 
+    // Input error state variables
     let [itemNameError, setItemNameError] = useState(false);
     let [itemDescriptionError, setItemDescriptionError] = useState(false);
     let [itemCategoryError, setItemCategoryError] = useState(false);
@@ -23,6 +26,7 @@ export default function AddInventoryPage() {
     let [itemQuantityError, setItemQuantityError] = useState(false);
     let [itemWarehouseError, setItemWarehouseError] = useState(false);
 
+    // Get warehouse list
     useEffect(() => {
         axios.get(API_URL + "/warehouse")
             .then((response) => {
@@ -32,9 +36,11 @@ export default function AddInventoryPage() {
                 console.log(error))
     }, []);
 
+    // On Submit handler to post new inventory item to DB
     function handleOnSubmit(event) {
         event.preventDefault();
 
+        // Declare variables to pass to axios body
         const itemName = event.target.itemName.value;
         const itemDescription = event.target.itemDescription.value;
         const itemCategory = event.target.itemCategory.value;
@@ -85,6 +91,7 @@ export default function AddInventoryPage() {
             setItemWarehouseError(false);
         }
 
+        // API call to post inventory object to DB
         axios.post(`${API_URL}/inventory`, {
             itemWarehouseId: itemWarehouseId,
             itemName: itemName,
