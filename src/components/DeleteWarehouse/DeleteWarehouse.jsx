@@ -2,7 +2,7 @@ import axios from 'axios';
 import close from '../../assets/icons/close-24px.svg';
 import './DeleteWarehouse.scss';
 
-const DeleteWarehouse = ({ closeModal, id }) => {
+const DeleteWarehouse = ({ closeModal, id, name }) => {
 
     const handleClick = () => {
         closeModal(false);
@@ -17,27 +17,27 @@ const DeleteWarehouse = ({ closeModal, id }) => {
     }
 
     return ( 
-        <div className="modalBackground">
-            <div className="modalContainer">
-            <img src={close} onClick= {() => closeModal(false)} alt="" />
+        <div className="modal">
+            <div className="modal__container">
+            <img src={close} onClick= {() => closeModal(false)} alt="" className='modal__container__close'/>
     
-            <div className="title"> 
-                <h1>Delete Washington warehouse?</h1>
+            <div className="modal__container__title"> 
+                <h1>Delete {name} warehouse?</h1>
             </div>
     
-            <div className="body">
-                <p>Please confirm that you;d like to delete the Washington from the list of warehouses.
+            <div className="modal__container__body">
+                <p>Please confirm that you'd like to delete the {name} from the list of warehouses.
                     You won't be able to undo this action.
                 </p>
             </div>
-            <div className="footer">
-            <button className="cancel-button" onClick= {() => closeModal(false)}>
-                <p className="cancel-button__text" >Cancel</p>
+            <div className="modal__container__footer">
+            <button className="modal__container__cancel-button" onClick= {() => closeModal(false)}>
+                <p className="modal__container__cancel-button__text" >Cancel</p>
             </button>
                 
     
-            <button className="delete-button" onClick= {handleClick}>
-                <p className="delete-button__text" >Delete</p>
+            <button className="modal__container__delete-button" onClick= {handleClick}>
+                <p className="modal__container__delete-button__text" >Delete</p>
             </button>
             </div>
             </div>
