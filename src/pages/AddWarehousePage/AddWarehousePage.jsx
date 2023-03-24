@@ -4,47 +4,6 @@ import backArrow from '../../assets/icons/arrow_back-24px.svg'
 import './AddWarehousePage.scss'
 
 export default function AddWarehousePage() {
-
-    const navigate = useNavigate();
-
-    // let [warehouseNameClass, setWarehouseNameClass] = useState(null);
-    // let [warehouseAddressClass, setWarehouseAddressClass] = useState(null);
-    // let [warehouseCityClass, setWarehouseCityClass] = useState(null);
-    // let [warehouseCountryClass, setWarehouseCountryClass] = useState(null);
-    // let [contactNameClass, setContactNameClass] = useState(null);
-    // let [contactPositionClass, setContactPositionClass] = useState(null);
-    // let [contactPhoneClass, setContactPhoneClass] = useState(null);
-    //  let [contactEmailClass, setContactEmailClass] = useState(null); 
-
-    function handleOnSubmit(event) {
-        event.preventDefault();
-
-        const name = event.target.warehouseName.value;
-        const streetAddress = event.target.warehouseStreetAddress.value;
-        const city = event.target.warehouseCity.value;
-        const country = event.target.warehouseCountry.value;
-        const contactName = event.target.warehouseContactName.value;
-        const contactPosition = event.target.warehouseContactPosition.value;
-        const contactPhoneNumber = event.target.warehousePhoneNumber.value;
-        const contactEmail = event.target.warehouseEmail.value;
-
-        axios.post(`${API_URL}/warehouse`, {
-            name: name,
-            streetAddress: streetAddress,
-            city: city,
-            country: country,
-            contactName: contactName,
-            contactPosition: contactPosition,
-            contactPhoneNumber: contactPhoneNumber,
-            contactEmail: contactEmail,
-        })
-        .then(() => {
-            navigate("/");
-            event.target.reset();
-          })
-          .catch(error => console.log(error));
-    }
-
     return (
         <section className="add-warehouse-page">
             <div className="add-warehouse-page__container">
