@@ -37,7 +37,7 @@ export default function InventoryCard({ id, itemName, description, warehouseId,c
                     <p className="inventory__label">INVENTORY ITEM</p>
                     <Link to={`/inventory/${id}`} style={{ display: 'flex', alignItems: 'center' }}>
                         <p>{itemName}</p>
-                        <img src={arrow} alt="delete icon"/>
+                        <img className="inventory__arrow-icon" src={arrow} alt="delete icon"/>
                     </Link>
                 </div>
                 <div className="inventory__address-container">

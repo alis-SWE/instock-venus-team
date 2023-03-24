@@ -10,11 +10,16 @@
     font-size: .8125rem;
     line-height: 1.25rem;
     background-color: #fff;
+
     @include tablet {
         align-items: center;
         justify-content: space-between;
     }
 
+    &:hover &__arrow-icon{
+        transition: 0.2s;
+        transform: translateX(4px);
+    }
 
     &__col-1 { 
         display: flex;

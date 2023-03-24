@@ -20,7 +20,7 @@ export default function WarehouseCard( { warehouse, address, city, country,conta
                     <p className="warehouse__label">WAREHOUSE</p>
                     <Link to={`warehouse/${id}`} style={{ display: 'flex', alignItems: 'center' }}>
                         <p>{warehouse}</p>
-                        <img src={arrow} alt="delete icon"/>
+                        <img className="warehouse__arrow-icon" src={arrow} alt="delete icon"/>
                     </Link>
                 </div>
                 <div className="warehouse__address-container">
