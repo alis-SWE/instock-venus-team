@@ -4,17 +4,29 @@ import axios from 'axios'
 
 import Button from '../../components/Button/Button'
 import CancelButton from '../../components/CancelButton/CancelButton'
+import FormError from '../../components/FormError/FormError'
 import backArrow from '../../assets/icons/arrow_back-24px.svg'
 import './AddInventoryPage.scss'
 
-const API_URL = process.env.REACT_APP_SERVER_URL;
+//API variable
+const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:8080";
 
 export default function AddInventoryPage() {
 
     const navigate = useNavigate();
 
+    // Warehouse List state variable
     let [warehouseList, setWarehouseList] = useState([]);
 
+    // Input error state variables
+    let [itemNameError, setItemNameError] = useState(false);
+    let [itemDescriptionError, setItemDescriptionError] = useState(false);
+    let [itemCategoryError, setItemCategoryError] = useState(false);
+    let [itemStatusError, setItemStatusError] = useState(false);
+    let [itemQuantityError, setItemQuantityError] = useState(false);
+    let [itemWarehouseError, setItemWarehouseError] = useState(false);
+
+    // Get warehouse list
     useEffect(() => {
         axios.get(API_URL + "/warehouse")
             .then((response) => {
@@ -24,18 +36,62 @@ export default function AddInventoryPage() {
                 console.log(error))
     }, []);
 
+    // On Submit handler to post new inventory item to DB
     function handleOnSubmit(event) {
         event.preventDefault();
 
+        // Declare variables to pass to axios body
         const itemName = event.target.itemName.value;
         const itemDescription = event.target.itemDescription.value;
         const itemCategory = event.target.itemCategory.value;
         const itemStatus = event.target.itemStatus.value;
         const itemQuantity = event.target.itemQuantity.value;
         const itemWarehouse = event.target.itemWarehouse.value;
-        const itemWarehouseObj = warehouseList.find(warehouse => warehouse.warehouse_name === itemWarehouse)
-        const itemWarehouseId = itemWarehouseObj.id;
+        let itemWarehouseId = "";
 
+        if (!(itemWarehouse === "")) {
+            const itemWarehouseObj = warehouseList.find(warehouse => warehouse.warehouse_name === itemWarehouse)
+            itemWarehouseId = itemWarehouseObj.id;
+        }
+
+        // Form validation
+        if (itemName.length < 2) {
+            setItemNameError(true);
+        } else {
+            setItemNameError(false);
+        }
+
+        if (itemDescription.length < 1) {
+            setItemDescriptionError(true);
+        } else {
+            setItemDescriptionError(false);
+        }
+
+        if (itemCategory === "") {
+            setItemCategoryError(true);
+        } else {
+            setItemCategoryError(false);
+        }
+
+        if (itemStatus === "") {
+            setItemStatusError(true);
+        } else {
+            setItemStatusError(false);
+        }
+
+        if (itemQuantity === "") {
+            setItemQuantityError(true);
+        } else {
+            setItemQuantityError(false);
+        }
+
+        if (itemWarehouse === "") {
+            setItemWarehouseError(true);
+        } else {
+            setItemWarehouseError(false);
+        }
+
+        // API call to post inventory object to DB
         axios.post(`${API_URL}/inventory`, {
             itemWarehouseId: itemWarehouseId,
             itemName: itemName,
@@ -64,8 +120,10 @@ export default function AddInventoryPage() {
                             <h2>Item Details</h2>
                             <h3>Item Name</h3>
                             <input id="itemName" name="itemName" placeholder="Item Name"></input>
+                            <FormError showError={itemNameError}/>
                             <h3>Description</h3>
                             <textarea id="itemDescription" name="itemDescription" placeholder="Please enter a brief item description..."></textarea>
+                            <FormError showError={itemDescriptionError}/>
                             <h3>Category</h3>
                             <select id="itemCategory" name="itemCategory">
                                 <option value="">Please select</option>
@@ -75,6 +133,7 @@ export default function AddInventoryPage() {
                                 <option value="Gear">Gear</option>
                                 <option value="Health">Health</option>
                             </select>
+                            <FormError showError={itemCategoryError}/>
                         </div>
                         <div className="add-inventory-page__availability-container">
                             <h2>Item Availability</h2>
@@ -89,8 +148,10 @@ export default function AddInventoryPage() {
                                     <label className="radio-label" htmlFor="itemOutOfStock">Out of stock</label>
                                 </div>
                             </div>
+                            <FormError showError={itemStatusError}/>
                             <h3>Quantity</h3>
-                            <input type="number" id="itemQuantity" name="itemQuantity" placeholder="0"></input>
+                            <input type="number" id="itemQuantity" name="itemQuantity" placeholder="Item Quantity"></input>
+                            <FormError showError={itemQuantityError}/>
                             <h3>Warehouse</h3>
                             <select id="itemWarehouse" name="itemWarehouse">
                                 <option value="">Please select</option>
@@ -99,6 +160,7 @@ export default function AddInventoryPage() {
                                         <option key={warehouse.id} value={warehouse.warehouse_name}>{warehouse.warehouse_name}</option>
                                 )})}
                             </select>
+                            <FormError showError={itemWarehouseError}/>
                         </div>
                     </div>
                     <div className="add-inventory-page__button-container">

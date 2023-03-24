@@ -5,39 +5,57 @@ import "./WarehousesPage.scss"
 import WarehouseCard from "../../components/WarehouseCard/WarehouseCard";
 import searchIcon from "../../assets/icons/search-24px.svg"
 import { Link } from "react-router-dom";
+import DeleteWarehouse from "../../components/DeleteWarehouse/DeleteWarehouse";
 
 const WarehousesPage = () => {
 
     const [warehouses, setWarehouses] = useState([]);
-
+    const [deleteWarehouse, setDeleteWarehouse] = useState(false);
+    const [warehouseID, setWarehouseID] = useState("");
+    const [warehouseName, setWarehouseName] = useState("");
+    
     const fetchWarehouse = async () => {
         try {
             const { data } = await axios.get("http://localhost:8080/warehouse");
             console.log(data);
-            setWarehouses(data)
+            setWarehouses(data);
         } catch (error) {
             console.log("Failed to Fetch Warehouses Data" + error);
         }
 
     }
+        
+    const getWarehouseID = (selectedWarehouse) => {
+        setWarehouseID(selectedWarehouse);
+        console.log(selectedWarehouse);
+    };
+
+    const getWarehouseName = (whName) => {
+        setWarehouseName(whName);
+        console.log(warehouseName);
+    };
+
 
     //useEffect Function 
     useEffect(() => {
         if(warehouses.length === 0){
             fetchWarehouse();
-        } else {
-
         }
+        
     }, [warehouses]);
+
+    useEffect(() => {
+        fetchWarehouse();
+    }, [deleteWarehouse]);
 
     return (
         <div className="warehouses">
             <div className="warehouses__container">
                 <div className="warehouses__header">
                     <h1 className="warehouses__title">Warehouses</h1>
-                    <div class="warehouses__search-container">
+                    <div className="warehouses__search-container">
                         <input id="warehouse-search" name="warehouses__search" placeholder="Search..."></input>
-                        <img src={searchIcon} alt="Search Icon" class="warehouses__search-icon"/>
+                        <img src={searchIcon} alt="Search Icon" className="warehouses__search-icon"/>
                     </div>
                     <Link to={`/warehouse/add`}>
                         <Button className="warehouse__btn" buttonText="+ Add  New Warehouse"/>
@@ -63,10 +81,14 @@ const WarehousesPage = () => {
                             contactName={warehouse.contact_name}
                             contactPhone={warehouse.contact_phone}
                             contactEmail={warehouse.contact_email}
+                            modalValue={(value) => setDeleteWarehouse(value)}
+                            wID={(wid) => getWarehouseID(wid)}
+                            wName={(wname) => getWarehouseName(wname)}
                         />
                     );
                 })}
            </div>
+           {deleteWarehouse && <DeleteWarehouse closeModal={setDeleteWarehouse} id={warehouseID} name={warehouseName} />}
         </div>  
     );
 }
