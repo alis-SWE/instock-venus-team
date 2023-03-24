@@ -60,6 +60,7 @@ export default function AddWarehousePage() {
           .catch(error => console.log(error));
     }
 
+    
     return (
         <section className="add-warehouse-page">
             <div className="add-warehouse-page__container">
