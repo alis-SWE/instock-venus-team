@@ -8,7 +8,7 @@ import EditWarehousePage from './pages/EditWarehousePage/EditWarehousePage';
 import WarehouseDetailPage from './pages/WarehouseDetailPage/WarehouseDetailPage';
 import EditInventoryItem from './pages/EditInventoryItem/EditInventoryItem';
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import Footer from './components/Footer/Footer'; 
 
 import './App.scss'
 
@@ -16,7 +16,7 @@ import './App.scss'
 function App() {
   return (
  
-<div className="App">
+<div  className="App">
 <BrowserRouter>
 <Header/>
    <Routes>

@@ -22,7 +22,7 @@ export default function AddInventoryPage() {
                 })
             .catch(error => 
                 console.log(error))
-    }, []);
+    }, []);   
 
     function handleOnSubmit(event) {
         event.preventDefault();

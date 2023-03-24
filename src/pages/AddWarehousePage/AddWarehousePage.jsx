@@ -29,7 +29,7 @@ export default function AddWarehousePage() {
     // let [contactNameClass, setContactNameClass] = useState(null);
     // let [contactPositionClass, setContactPositionClass] = useState(null);
     // let [contactPhoneClass, setContactPhoneClass] = useState(null);
-    // let [contactEmailClass, setContactEmailClass] = useState(null);
+    //  let [contactEmailClass, setContactEmailClass] = useState(null); 
 
     function handleOnSubmit(event) {
         event.preventDefault();

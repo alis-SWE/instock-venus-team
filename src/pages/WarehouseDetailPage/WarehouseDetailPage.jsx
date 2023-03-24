@@ -30,7 +30,7 @@ export default function WarehouseDetailPage() {
 
     // Render the component only when the id is not null
     if (!id) {
-        return <div>Loading...</div>;
+        return <div>Loading ...</div>;
     }
 
     return (

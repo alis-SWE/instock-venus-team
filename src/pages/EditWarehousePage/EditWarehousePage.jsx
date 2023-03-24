@@ -20,9 +20,9 @@ export default function EditWarehousePage() {
   });
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target; 
     setFormData((prevFormData) => ({
-      ...prevFormData,
+      ...prevFormData,   
       [name]: value,
     }));
   };
@@ -82,7 +82,7 @@ export default function EditWarehousePage() {
                 id="warehouse-city"
                 name="city"
                 placeholder="City"
-                value={formData.city}
+                value={formData.city}  
                 onChange={handleInputChange}
               />
               <h3>Warehouse Country</h3>
