@@ -17,8 +17,8 @@ function App() {
    <Routes>
        <Route path='/' element={<WarehousesPage/>}></Route>
         <Route path='/inventory' element={<InventoryPage/>}></Route>
-        <Route path='*' element={<NotFoundPage/>}></Route>
         <Route path='/warehouse/add' element={<AddWarehousePage/>}></Route>
+        <Route path='*' element={<NotFoundPage/>}></Route>
     </Routes>
     <Footer />
     </BrowserRouter>
