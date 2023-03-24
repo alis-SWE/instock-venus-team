@@ -1,0 +1,15 @@
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.modalContainer {
+    display: flex;
+    // position: fixed;
+    // top: 50%;
+    // left: 50%;
+    // justify-content: center;
+}
+
+.modalBackground {
+   background-color: black;
+}
