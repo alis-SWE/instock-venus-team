@@ -1,0 +1,127 @@
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.warehouse-pg {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    &__header{
+        display: flex;
+        padding: 2rem 2rem 2rem 2rem;
+        border-radius: 3px;
+        border-bottom: 1px solid #BDC5D5;;
+       flex-direction: column;
+        @include tablet{
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        @include desktop{
+
+        }
+    }
+
+    &__container {
+        border-radius: .25rem;
+        margin-top: -4rem;
+        background-color: $White;
+        //box-shadow: 0px 2px 5px 0px #13182C1A;
+        overflow: hidden;
+        width: 100%;
+        @include tablet {
+            margin-top: -6rem;
+        }
+    }
+
+    &__details{
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 2rem 2rem 2rem;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+    &__contact-container{
+        display: flex;
+        flex-direction: row;
+        @include tablet {
+            width: 63%;
+        }
+    }
+    &__address-container{
+       width: 100%;
+       margin-bottom: 1.5rem;
+        @include tablet {
+            width: 37%;
+            margin-bottom: 0rem;
+            border-right: 1px solid #BDC5D5;
+            margin-right: 2rem;
+        }
+    }
+    &__address{
+        display: inline;
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    &__contact{
+        width: 50%;
+        @include tablet {
+            width: 45%;
+        }
+    }
+    &__information-container{
+
+    }
+    &__link{
+        text-decoration: none;
+        color: black;
+        font-size: .875rem;
+        font-weight: 600;
+        display: flex;
+        flex-direction: row;
+    }
+    &__title{
+
+        @include tablet {
+            margin-left: 0.5rem;
+        }
+    }
+    &__label{
+        color: #5C667E;
+        font-size: 11px;
+    }
+    &__edit-link{
+        background: #2E66E6;
+        border-radius: 20px;
+        width: 36px;
+        height: 36px;
+        justify-content: center;
+        display: flex;
+        align-self: center;
+        @include tablet {
+            width: 5.0625rem;
+            height: 2.375rem;
+            border-radius: 20px;
+        }
+    }
+    &__edit-icon{
+        width: .9375rem;
+        height: .9375rem;
+        display: flex;
+        align-self: center;
+    }
+    &__edit-text{
+        display: none;
+        color: white;
+        @include tablet {
+            display: flex;
+            align-self: center;
+            margin-left: .5rem;
+        }
+    }
+}
+
+
