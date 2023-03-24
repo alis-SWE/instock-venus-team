@@ -6,14 +6,14 @@ import AddWarehousePage from './pages/AddWarehousePage/AddWarehousePage';
 import EditWarehousePage from './pages/EditWarehousePage/EditWarehousePage';
 import EditInventoryItem from './pages/EditInventoryItem/EditInventoryItem';
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer'; 
+import Footer from './components/Footer/Footer';
 
 import './App.scss'
 
 function App() {
   return (
  
-<div  className="App">
+<div className="App">
 <BrowserRouter>
 <Header/>
    <Routes>
