@@ -23,6 +23,7 @@ const WarehousesPage = () => {
         }
 
     }
+        
     const getWarehouseID = (selectedWarehouse) => {
         setWarehouseID(selectedWarehouse);
         console.log(selectedWarehouse);
@@ -41,6 +42,10 @@ const WarehousesPage = () => {
         }
         
     }, [warehouses]);
+
+    useEffect(() => {
+        fetchWarehouse();
+    }, [deleteWarehouse]);
 
     return (
         <div className="warehouses">
