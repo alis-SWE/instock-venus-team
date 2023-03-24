@@ -69,9 +69,10 @@ export default function InventoryCard({ id, itemName, description, warehouseId,c
                 <Link className="inventory__delete--tablet">
                     <img src={deleteIcon} alt="delete icon"/>
                 </Link>
-                <Link to={`inventory/edit/${id}`} className="inventory__edit--tablet">
+                <Link to={`edit/${id}`} className="inventory__edit--tablet">
                     <img src={editIcon} alt="edit icon"/>
                 </Link>
+
             </div>
         </div>
     );

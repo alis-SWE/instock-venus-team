@@ -18,7 +18,6 @@ const InventoryPage = () => {
         } catch (error) {
             console.log("Failed to Fetch inventory Data" + error);
         }
-
     }
     //useEffect Function 
     useEffect(() => {
@@ -39,7 +38,7 @@ const InventoryPage = () => {
                         <input id="warehouse-search" name="inventory__search" placeholder="Search..."></input>
                         <img src={searchIcon} alt="Search Icon" class="inventory__search-icon"/>
                     </div>
-                    <Button className="warehouse__btn" buttonText="+ Add  New Warehouse"/>
+                    <Button className="warehouse__btn" buttonText="+ Add  New Item"/>
                 </div>
                 <div className='inventory__labels--tablet'>
                     <div className="inventory__label--tablet">INVENTORY ITEM</div>
