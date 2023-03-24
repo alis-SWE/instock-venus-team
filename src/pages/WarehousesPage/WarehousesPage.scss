@@ -85,12 +85,14 @@
         @include tablet{
            font-size: .75rem;
            color: #5C667E;
+           //margin-right: 0.25em;
        
         }
     }
     &__label--tablet--action{
         width: 10%;
        text-align: right;
+       margin-right: 0rem;
     }
 
 }
