@@ -5,6 +5,7 @@ import CancelButton from "../../components/CancelButton/CancelButton";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import "./EditInventoryItem.scss";
 import axios from "axios";
+import FormError from '../../components/FormError/FormError'
 
 export default function EditInventoryItem() {
   const { id } = useParams();
@@ -19,6 +20,32 @@ export default function EditInventoryItem() {
   const [warehouseList, setWarehouseList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
 
+  const [errors, setErrors] = useState({
+    item_name: false,
+    description: false,
+    category: false,
+    status: false,
+    quantity: false,
+    warehouse_id: false,
+  })
+
+  const validateForm = () => {
+    setErrors({
+      item_name: formData.item_name.length < 2 || formData.item_name.length > 20,
+      description: formData.description.length < 2 || formData.description.length > 400,
+      category: formData.category.length < 2 || formData.category.length > 100,
+      status: formData.status.length < 2 || formData.status.length > 20,
+      quantity: formData.quantity.length < 1 || formData.quantity.length > 20,
+      warehouse_id: formData.warehouse_id.length < 2 || formData.warehouse_id.length > 100,
+    })
+    return (Object.values(errors).every((value) => value === false))
+  }
+
+  useEffect(() => {
+    validateForm();
+  }, [formData]);
+
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
@@ -29,12 +56,14 @@ export default function EditInventoryItem() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (validateForm()) {
+      axios
+        .put(`http://localhost:8080/inventory/${id}`, formData)
+        .catch((error) => {
+          console.error(error);
+        });
+    }
 
-    axios
-      .put(`http://localhost:8080/inventory/${id}`, formData)
-      .catch((error) => {
-        console.error(error);
-      });
   };
 
   const getWarehouseList = () => {
@@ -110,6 +139,7 @@ export default function EditInventoryItem() {
                 value={formData.item_name}
                 onChange={handleInputChange}
               />
+              <FormError showError={errors.item_name}/>
               <h3>Description</h3>
               <textarea
                 id="item-street-address"
@@ -119,6 +149,7 @@ export default function EditInventoryItem() {
                 value={formData.description}
                 onChange={handleInputChange}
               />
+              <FormError showError={errors.description}/>
               <h3>Category</h3>
               <select
                 id="item-city"
@@ -135,6 +166,7 @@ export default function EditInventoryItem() {
                   </option>
                 ))}
               </select>
+              <FormError showError={errors.category}/>
             </div>
             <div className="edit-invitm-page__contact-container">
               <h2>Item Availability</h2>
@@ -167,6 +199,7 @@ export default function EditInventoryItem() {
                   Out of stock
                 </label>
               </div>
+              <FormError showError={errors.status}/>
               {formData.status === "In Stock" && (
                 <div>
                   <h3>Quantity</h3>
@@ -177,8 +210,11 @@ export default function EditInventoryItem() {
                     value={formData.quantity}
                     onChange={handleInputChange}
                   />
+                  <FormError showError={errors.quantity}/>
                 </div>
+                
               )}
+              
               <h3>Warehouse</h3>
               <select
                 id="item-phone-number"
@@ -194,6 +230,7 @@ export default function EditInventoryItem() {
                   </option>
                 ))}
               </select>
+              <FormError showError={errors.warehouse_id}/>
             </div>
           </div>
           <div className="edit-invitm-page__button-container">
