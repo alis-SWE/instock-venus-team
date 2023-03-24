@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.add-warehouse-page {
+.edit-warehouse-page {
     max-width: 64rem;
     margin: 0 auto;
 
@@ -25,10 +25,6 @@
         display: flex;
         flex-direction: row;
         gap: 0.5rem;
-    }
-
-    &__back-arrow {
-        margin-top: 0.5rem;
     }
 
     &__data-container {
@@ -71,14 +67,6 @@
 
         @include tablet {
             justify-content: end;
-        }
-    }
-
-    &__button {
-        width: 100%;
-
-        @include tablet {
-            width: auto;
         }
     }
 }
