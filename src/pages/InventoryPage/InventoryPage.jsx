@@ -31,24 +31,24 @@ const InventoryPage = () => {
 
 
     return (       
-        <div className="inventory">
-            <div className="inventory__container">
-                <div className="inventory__header">
-                    <h1 className="inventory__title">Inventory</h1>
-                    <div class="inventory__search-container">
+        <div className="inventories">
+            <div className="inventories__container">
+                <div className="inventories__header">
+                    <h1 className="inventories__title">Inventory</h1>
+                    <div class="inventories__search-container">
                         <input id="warehouse-search" name="inventory__search" placeholder="Search..."></input>
-                        <img src={searchIcon} alt="Search Icon" class="inventory__search-icon"/>
+                        <img src={searchIcon} alt="Search Icon" class="inventories__search-icon"/>
                     </div>
                     <Button className="warehouse__btn" buttonText="+ Add  New Item"/>
 
                 </div>
-                <div className='inventory__labels--tablet'>
-                    <div className="inventory__label--tablet">INVENTORY ITEM</div>
-                    <div className="inventory__label--tablet">CATEGORY</div>
-                    <div className="inventory__label--tablet">STATUS</div>
-                    <div className="inventory__label--tablet">QTY</div>
-                    <div className="inventory__label--tablet">WAREHOUSE</div>
-                    <div className="inventory__label--tablet inventory__label--tablet--action">ACTIONS</div>
+                <div className='inventories__labels--tablet'>
+                    <div className="inventories__label--tablet">INVENTORY ITEM</div>
+                    <div className="inventories__label--tablet">CATEGORY</div>
+                    <div className="inventories__label--tablet">STATUS</div>
+                    <div className="inventories__label--tablet">QTY</div>
+                    <div className="inventories__label--tablet">WAREHOUSE</div>
+                    <div className="inventories__label--tablet inventories__label--tablet--action">ACTIONS</div>
                 </div>
                 {inventory.length > 0 && inventory.map((inventory, i) => {
                     return (

@@ -14,6 +14,9 @@
     @include tablet {
         align-items: center;
     }
+
+
+
     &__col-1 { 
         display: flex;
         width: 50%;
@@ -56,6 +59,11 @@
         @include tablet{
             display: none;
         }
+    }
+
+    &:hover &__arrow-icon{
+        transition: 0.2s;
+        transform: translateX(4px);
     }
     &__edit{
         display: flex;

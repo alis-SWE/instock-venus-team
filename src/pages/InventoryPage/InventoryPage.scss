@@ -3,7 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 
-.inventory {
+.inventories {
     max-width: 64rem;
     margin: 0 auto;
 
@@ -88,8 +88,7 @@
     input::placeholder {
         border: none;
     }  
-    input::focus {
+    input:focus {
         border: none;
     }
 }
-
