@@ -5,6 +5,7 @@ import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import arrow from '../../assets/icons/chevron_right-24px.svg';
 import axios from "axios"
+import Status from '../Status/Status';
 
 export default function InventoryCard({ id, itemName, description, warehouseId,category, status, quantity, }) {
 
@@ -51,7 +52,7 @@ export default function InventoryCard({ id, itemName, description, warehouseId,c
             <div className="inventory__col-2">
                 <div className="inventory__name-container">
                     <p className="inventory__label">STATUS</p>
-                    <p>{status}</p>
+                    <Status status={status}/>
                 </div>
                 <div className="inventory__info-container">
                         <p className="inventory__label">QTY</p>

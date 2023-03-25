@@ -116,6 +116,7 @@
         }
     }
     &__delete{
+        max-width: 24px;
         @include tablet {
             display: none;
         }

@@ -38,7 +38,7 @@ const InventoryPage = () => {
                     <h1 className="inventories__title">Inventory</h1>
                     <div class="inventories__search-container">
                         <input id="warehouse-search" name="inventory__search" placeholder="Search..."></input>
-                        <img src={searchIcon} alt="Search Icon" class="inventories__search-icon"/>
+                        <img src={searchIcon} alt="Search Icon" className="inventories__search-icon"/>
                     </div>
                     <Link to={`/inventory/add`}>
                         <Button className="warehouse__btn" buttonText="+ Add  New Item"/>
