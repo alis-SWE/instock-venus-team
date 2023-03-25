@@ -1,0 +1,33 @@
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.status-text{
+    margin-top: 0.25rem;
+    color: #C94515;
+    font-size: 12px;
+    line-height: 18px;
+    max-width: 95px;
+    text-align: center;
+    font-weight: 600;
+    max-width: 75px;
+    padding: 0.25rem;
+    text-align: center;
+    text-transform: uppercase;
+    @include tablet {
+        max-width: 70px;
+    }
+
+    &--in {
+        background-color: rgba(21, 132, 99, 0.07);
+        border-radius: 20px;
+        color: #158463;
+    }
+      /* Style for Out of Stock text */
+    &--out {
+        background-color: rgba(201, 69, 21, 0.07);
+        border-radius: 20px;
+        color: #C94515;
+        max-width: 100px;
+    }
+}

@@ -80,4 +80,83 @@
         color: #5C667E;
         font-size: 11px;
     }
+    &__item-details{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 1.5rem;
+        margin-bottom: 1rem;
+        @include tablet {
+            width: 50%;
+            border-right: 1px solid #BDC5D5;
+            margin-bottom: 0;
+
+
+        }
+    }
+    &__warehouse-details{
+        display: flex;
+        flex-direction: column;
+        padding: 0 1.5rem;
+        @include tablet {
+            flex-direction: column;
+            width: 50%;
+        }
+    }
+    &__qty-container{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+    }
+    &__status{
+        width: 50%;
+    }
+    &__description{
+        margin-bottom: 1rem;
+    }
+    &__item-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 1.5rem 0;
+        @include tablet {
+            flex-direction: row;
+            
+        }
+    }
+    &__status-text{
+        margin-top: 0.25rem;
+        color: #C94515;
+        font-size: 12px;
+        line-height: 18px;
+        max-width: 95px;
+        text-align: center;
+        font-weight: 600;
+        max-width: 75px;
+        padding: 0.25rem;
+        text-align: center;
+        text-transform: uppercase;
+        @include tablet {
+            max-width: 70px;
+        }
+
+        &--in {
+            background-color: rgba(21, 132, 99, 0.07);
+            border-radius: 20px;
+            color: #158463;
+        }
+          /* Style for Out of Stock text */
+        &--out {
+            background-color: rgba(201, 69, 21, 0.07);
+            border-radius: 20px;
+            color: #C94515;
+        }
+    }
+    &__quantity-text{
+        margin-top: 0.25rem;
+    }
+    &__warehouse-text {
+        margin-top: 0.25rem;
+
+    }
 }
