@@ -5,11 +5,16 @@ import Button from '../../components/Button/Button';
 import './WarehouseDetailPage.scss';
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
+import InventoryList from '../../components/InventoryList/InventoryList';
+import DeleteInventoryList from '../../components/DeleteInventoryList/DeleteInventoryList';
 
 export default function WarehouseDetailPage() {
 
     const { id } = useParams();
     const [warehouse, setWarehouse] = useState({});
+    const [deleteInventory, setDeleteInventory] = useState(false);
+    const [inventoryID, setInventoryID] = useState("");
+    const [inventoryName, setInventoryName] = useState("");
 
     const fetchWarehouse = async () => {
         try {
@@ -21,12 +26,23 @@ export default function WarehouseDetailPage() {
             console.log("Failed to Fetch inventory Data" + error);
         }
     }
-    
+
+    const getInventoryID = (selectedInventory) => {
+        setInventoryID(selectedInventory);
+        console.log(selectedInventory);
+    };
+
+    const getInventoryName = (iName) => {
+        setInventoryName(iName);
+        console.log(inventoryName);
+    };
+
     useEffect(() => {
         if (id) {
             fetchWarehouse();
         }
     }, [id])
+
 
     // Render the component only when the id is not null
     if (!id) {
@@ -66,7 +82,13 @@ export default function WarehouseDetailPage() {
                         </div>
                     </div>
                 </div>
-
+                <InventoryList 
+                    warehouseID={id} 
+                    modalValue={(value) => setDeleteInventory(value)}
+                    invID={(invId) => getInventoryID(invId)}
+                    invName={(invname) => getInventoryName(invname)}
+                />
+                {deleteInventory && <DeleteInventoryList closeModal={setDeleteInventory} id={inventoryID} name={inventoryName} />}
             </div>
         </div>
     )
