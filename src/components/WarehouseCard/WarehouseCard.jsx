@@ -40,13 +40,13 @@ export default function WarehouseCard( { warehouse, address, city, country,conta
                     <p>{contactEmail}</p>
                 </div>
                 <Link to={`warehouse/edit/${id}`} className="warehouse__edit">
-                    <img src={editIcon} alt=""/>
+                    <svg src={editIcon} alt="" className="warehouse__edit-img"/>
                 </Link>
             </div>
             <div className="warehouse__actions-container">
                 <img src={deleteIcon} alt="" className='warehouse__delete--tablet' onClick={handleClick}/>
                 <Link className="warehouse__edit--tablet">
-                    <img src={editIcon} alt="edit icon"/>
+                    <svg src={editIcon} alt="edit icon" className="warehouse__edit-img"/>
                 </Link>
             </div>
         </div>
