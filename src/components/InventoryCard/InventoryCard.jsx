@@ -7,9 +7,15 @@ import arrow from '../../assets/icons/chevron_right-24px.svg';
 import axios from "axios"
 import Status from '../Status/Status';
 
-export default function InventoryCard({ id, itemName, description, warehouseId,category, status, quantity, }) {
+export default function InventoryCard({ id, itemName, warehouseId,category, status, quantity, modalValue, invID, invName }) {
 
     const [warehouse, setWarehouse] = useState("")
+
+    const handleClick = () => {
+        invID(id);
+        invName(itemName);
+        modalValue(true);
+    }
 
     const fetchWarehouse = async () => {
         try {
@@ -45,9 +51,7 @@ export default function InventoryCard({ id, itemName, description, warehouseId,c
                     <p className="inventory__label">CATEGORY</p>
                     <p>{category}</p>
                 </div>
-                <Link className="inventory__delete">
-                    <img src={deleteIcon} alt=""/>
-                </Link>
+                    <img src={deleteIcon} alt="" className="inventory__delete" onClick={handleClick}/>
             </div>
             <div className="inventory__col-2">
                 <div className="inventory__name-container">
@@ -67,9 +71,7 @@ export default function InventoryCard({ id, itemName, description, warehouseId,c
                 </Link>
             </div>
             <div className="inventory__actions-container">
-                <Link to={`inventory/edit/${id}`} className="inventory__delete--tablet">
-                    <img src={deleteIcon} alt=""/>
-                </Link>
+                    <img src={deleteIcon} alt="" onClick={handleClick}/>
                 <Link to={`edit/${id}`} className="inventory__edit--tablet">
                     <img src={editIcon} alt="edit icon"/>
                 </Link>

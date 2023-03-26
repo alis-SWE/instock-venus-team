@@ -1,0 +1,28 @@
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory-list {
+    &__labels--tablet{
+        display: none;
+        
+        @include tablet{
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    &__label--tablet{
+        width: 16.66%;
+
+
+        @include tablet{
+           font-size: .75rem;
+           color: #5C667E;
+        }
+    }
+    &__label--tablet--action{
+        width: 16.66%;
+        text-align: right;
+    }
+}

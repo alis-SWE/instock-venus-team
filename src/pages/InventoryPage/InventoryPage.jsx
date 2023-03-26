@@ -6,10 +6,14 @@ import searchIcon from "../../assets/icons/search-24px.svg"
 import Button from "../../components/Button/Button";
 import "./InventoryPage.scss"
 import {Link} from "react-router-dom";
+import DeleteInventoryList from "../../components/DeleteInventoryList/DeleteInventoryList";
 
 const InventoryPage = () => {
 
     const [inventory, setInventory] = useState([]);
+    const [deleteInventory, setDeleteInventory] = useState(false);
+    const [inventoryID, setInventoryID] = useState("");
+    const [inventoryName, setInventoryName] = useState("");
 
     const fetchInventory = async () => {
         try {
@@ -21,6 +25,17 @@ const InventoryPage = () => {
         }
 
     }
+
+    const getInventoryID = (selectedInventory) => {
+        setInventoryID(selectedInventory);
+        console.log(selectedInventory);
+    };
+
+    const getInventoryName = (iName) => {
+        setInventoryName(iName);
+        console.log(inventoryName);
+    };
+
     //useEffect Function 
     useEffect(() => {
         if(inventory.length === 0){
@@ -29,6 +44,10 @@ const InventoryPage = () => {
 
         }
     }, [inventory]);
+
+    useEffect(() => {
+        fetchInventory();
+    }, [deleteInventory]);
 
 
     return (       
@@ -64,11 +83,16 @@ const InventoryPage = () => {
                         description={inventory.description}
                         status={inventory.status} 
                         quantity={inventory.quantity} 
+
+                        modalValue={(value) => setDeleteInventory(value)}
+                        invID={(invId) => getInventoryID(invId)}
+                        invName={(invname) => getInventoryName(invname)}
                     />
                     
                     );
                 })}
             </div>
+            {deleteInventory && <DeleteInventoryList closeModal={setDeleteInventory} id={inventoryID} name={inventoryName} />}
         </div>  
     );
 }
