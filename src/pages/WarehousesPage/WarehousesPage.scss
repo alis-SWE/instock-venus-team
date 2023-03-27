@@ -7,11 +7,25 @@
     max-width: 64rem;
     margin: 0 auto;
 
+    &__container {
+        box-shadow: 0px 2px 5px 0px #13182C1A;
+        border-radius: .25rem;
+        margin: 1rem;
+        margin-top: -4rem;
+        background-color: $White;
+        //box-shadow: 0px 2px 5px 0px #13182C1A;
+        overflow: hidden;
+
+        @include tablet {
+            margin-top: -6rem;
+        }
+    }
+
     &__header{
         display: flex;
-        padding: 2rem 2rem 2rem 2rem;
+        padding: 2rem 2rem 1.5rem 2rem;
         border-radius: 3px;
-        border-bottom: 2px solid #BDC5D5;;
+        border-bottom: 1px solid #BDC5D5;;
        flex-direction: column;
         @include tablet{
             flex-direction: row;
@@ -30,25 +44,13 @@
         }
     }
 
-    &__container {
-        border-radius: .25rem;
-        margin: 1rem;
-        margin-top: -4rem;
-        background-color: $White;
-        //box-shadow: 0px 2px 5px 0px #13182C1A;
-        overflow: hidden;
-
-        @include tablet {
-            margin-top: -6rem;
-        }
-    }
     input {
         border: none;
     }
     input::placeholder {
         border: none;
     }  
-    input::focus {
+    input:focus {
         border: none;
     }
     &__search-icon {
@@ -74,7 +76,8 @@
         display: none;
         
         @include tablet{
-            padding: 0 1.5rem;
+            background-color: $Light-Grey;
+            padding: 0.75rem 1.5rem;
             display: flex;
             flex-direction: row;
         }
@@ -102,7 +105,7 @@
         font-size: .75rem !important;
     }
     &__sort-icon{
-        max-height: 0.75rem;
+        max-height: 1rem;
     }
 
 }
