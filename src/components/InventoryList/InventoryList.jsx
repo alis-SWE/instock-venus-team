@@ -9,7 +9,7 @@ import Status from '../Status/Status';
 
 export default function InventoryList({ warehouseID, invID, invName, modalValue }) {
     const [inventory, setInventory] = useState([]);
-
+    
     const fetchInventory = async () => {
         try {
             const { data } = await axios.get("http://localhost:8080/inventory");
@@ -28,7 +28,7 @@ export default function InventoryList({ warehouseID, invID, invName, modalValue 
         } else {
     
         }
-    }, [inventory]);
+    }, []);
     useEffect(() => {
 
             fetchInventory();
