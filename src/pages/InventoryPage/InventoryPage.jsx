@@ -7,6 +7,7 @@ import Button from "../../components/Button/Button";
 import "./InventoryPage.scss"
 import {Link} from "react-router-dom";
 import DeleteInventoryList from "../../components/DeleteInventoryList/DeleteInventoryList";
+import sortIcon from "../../assets/icons/sort-24px.svg"
 
 const InventoryPage = () => {
 
@@ -14,10 +15,12 @@ const InventoryPage = () => {
     const [deleteInventory, setDeleteInventory] = useState(false);
     const [inventoryID, setInventoryID] = useState("");
     const [inventoryName, setInventoryName] = useState("");
+    const [sortBy, setSortBy] = useState("warehouse_id");
+    const [orderBy, setOrderBy] = useState("asc");
 
     const fetchInventory = async () => {
         try {
-            const { data } = await axios.get("http://localhost:8080/inventory");
+            const { data } = await axios.get(`http://localhost:8080/inventory?sort_by=${sortBy}&order_by=${orderBy}`);
             console.log(data);
             setInventory(data)
         } catch (error) {
@@ -35,6 +38,17 @@ const InventoryPage = () => {
         setInventoryName(iName);
         console.log(inventoryName);
     };
+
+    const handleSort = (sort_by) => {
+        if (orderBy === "desc") {
+            setOrderBy("asc");
+        }  else {
+            setOrderBy("desc");
+        }
+        setSortBy(sort_by);
+
+        fetchInventory();
+    }
 
     //useEffect Function 
     useEffect(() => {
@@ -64,10 +78,15 @@ const InventoryPage = () => {
                 </div>
                 <div className='inventories__labels--tablet'>
                     <div className="inventories__label--tablet">INVENTORY ITEM</div>
+                    <img onClick={() => {handleSort("item_name")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
                     <div className="inventories__label--tablet">CATEGORY</div>
+                    <img onClick={() => {handleSort("category")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
                     <div className="inventories__label--tablet">STATUS</div>
+                    <img onClick={() => {handleSort("status")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
                     <div className="inventories__label--tablet">QTY</div>
+                    <img onClick={() => {handleSort("quantity")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
                     <div className="inventories__label--tablet">WAREHOUSE</div>
+                    <img onClick={() => {handleSort("warehouse_id")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
                     <div className="inventories__label--tablet inventories__label--tablet--action">ACTIONS</div>
                 </div>
                 {inventory.length > 0 && inventory.map((inventory, i) => {
@@ -77,7 +96,7 @@ const InventoryPage = () => {
                         id={inventory.id}
                         itemName={inventory.item_name}
                         category={inventory.category}
-                        warehouseId={inventory.warehouse_id} 
+                        warehouse={inventory.warehouse_name} 
                         description={inventory.description}
                         status={inventory.status} 
                         quantity={inventory.quantity} 
@@ -85,6 +104,8 @@ const InventoryPage = () => {
                         modalValue={(value) => setDeleteInventory(value)}
                         invID={(invId) => getInventoryID(invId)}
                         invName={(invname) => getInventoryName(invname)}
+
+                        handleSort={handleSort}
                     />
                     
                     );

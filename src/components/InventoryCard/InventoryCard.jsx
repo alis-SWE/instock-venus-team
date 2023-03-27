@@ -7,9 +7,8 @@ import arrow from '../../assets/icons/chevron_right-24px.svg';
 import axios from "axios"
 import Status from '../Status/Status';
 
-export default function InventoryCard({ id, itemName, warehouseId,category, status, quantity, modalValue, invID, invName }) {
+export default function InventoryCard({ id, itemName, warehouse, category, status, quantity, modalValue, invID, invName }) {
 
-    const [warehouse, setWarehouse] = useState("")
 
     const handleClick = () => {
         invID(id);
@@ -17,25 +16,6 @@ export default function InventoryCard({ id, itemName, warehouseId,category, stat
         modalValue(true);
     }
 
-    const fetchWarehouse = async () => {
-        try {
-            const { data } = await axios.get(`http://localhost:8080/warehouse/${warehouseId}`);
-            console.log(data);
-            setWarehouse(data.warehouse_name);
-        } catch (error) {
-            console.log("Failed to Fetch Warehouses Data" + error);
-        }
-
-    }
-
-
-    useEffect(() => {
-        if(warehouse === ""){
-            fetchWarehouse();
-        } else {
-
-        }
-    }, [warehouse]);
 
     return (
         <div className="inventory">
