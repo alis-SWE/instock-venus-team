@@ -3,11 +3,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import InventoryCard from "../../components/InventoryCard/InventoryCard";
 import searchIcon from "../../assets/icons/search-24px.svg"
+import sortIcon from "../../assets/icons/sort-24px.svg"
 import Button from "../../components/Button/Button";
 import "./InventoryPage.scss"
 import {Link} from "react-router-dom";
 import DeleteInventoryList from "../../components/DeleteInventoryList/DeleteInventoryList";
-import sortIcon from "../../assets/icons/sort-24px.svg"
 
 const InventoryPage = () => {
 
@@ -52,7 +52,7 @@ const InventoryPage = () => {
 
     //useEffect Function 
     useEffect(() => {
-
+        setOrderBy("desc")
         //    fetchInventory();
   
     }, []);
@@ -77,17 +77,30 @@ const InventoryPage = () => {
                 
                 </div>
                 <div className='inventories__labels--tablet'>
-                    <div className="inventories__label--tablet">INVENTORY ITEM</div>
-                    <img onClick={() => {handleSort("item_name")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
-                    <div className="inventories__label--tablet">CATEGORY</div>
-                    <img onClick={() => {handleSort("category")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
-                    <div className="inventories__label--tablet">STATUS</div>
-                    <img onClick={() => {handleSort("status")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
-                    <div className="inventories__label--tablet">QTY</div>
-                    <img onClick={() => {handleSort("quantity")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
-                    <div className="inventories__label--tablet">WAREHOUSE</div>
-                    <img onClick={() => {handleSort("warehouse_id")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
-                    <div className="inventories__label--tablet inventories__label--tablet--action">ACTIONS</div>
+                    <div className="inventories__container--tablet">
+                        <h4 className="inventories__label--tablet">INVENTORY ITEM</h4>
+                        <img onClick={() => {handleSort("item_name")}} src={sortIcon} alt="Sort Icon" className="inventories__sort-icon"/>
+                    </div>
+                    <div className="inventories__container--tablet">
+                        <h4 className="inventories__label--tablet">CATEGORY</h4>
+                        <img onClick={() => {handleSort("category")}} src={sortIcon} alt="Sort Icon" className="inventories__sort-icon"/>
+                    </div>    
+                    <div className="inventories__container--tablet">
+                        <h4 className="inventories__label--tablet">STATUS</h4>
+                        <img onClick={() => {handleSort("status")}} src={sortIcon} alt="Sort Icon" className="inventories__sort-icon"/>
+                    </div>
+                    <div className="inventories__container--tablet">
+                        <h4 className="inventories__label--tablet">QTY</h4>
+                        <img onClick={() => {handleSort("quantity")}} src={sortIcon} alt="Sort Icon" className="inventories__sort-icon"/>
+                    </div>
+                    <div className="inventories__container--tablet">
+                        <h4 className="inventories__label--tablet">WAREHOUSE</h4>
+                        <img onClick={() => {handleSort("warehouse_id")}} src={sortIcon} alt="Sort Icon" className="inventories__sort-icon"/>
+                    </div>
+                    <div className="inventories__container--tablet">
+                        <h4 className="inventories__label--tablet inventories__label--tablet--action">ACTIONS</h4>
+                        <img src={sortIcon} alt="Sort Icon" className="inventories__sort-icon"/>
+                    </div>
                 </div>
                 {inventory.length > 0 && inventory.map((inventory, i) => {
                     return (
