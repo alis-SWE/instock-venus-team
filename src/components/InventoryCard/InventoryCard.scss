@@ -73,6 +73,8 @@
         }
     }
     &__delete{
+        max-width: 24px;
+
         @include tablet {
             display: none;
         }
@@ -115,6 +117,11 @@
             margin-right: 1rem;
 
         }
+    }
+    &__delete--tablet{
+        max-width: 24px;
+        max-height: 24px;
+  
     }
 }
 

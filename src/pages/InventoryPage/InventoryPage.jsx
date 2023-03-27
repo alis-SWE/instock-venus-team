@@ -81,7 +81,6 @@ const InventoryPage = () => {
                         category={inventory.category}
                         warehouseId={inventory.warehouse_id} 
                         description={inventory.description}
-                
                         status={inventory.status} 
                         quantity={inventory.quantity} 
 

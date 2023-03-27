@@ -234,10 +234,10 @@ export default function EditInventoryItem() {
             </div>
           </div>
           <div className="edit-invitm-page__button-container">
-            <Link to={"/"}>
+            <Link to={"/"} className="edit-invitm-page__cancel">
               <CancelButton />
             </Link>
-            <Button buttonText="Save" type="submit" />
+            <Button buttonText="Save" type="submit" isHalf={true}/>
           </div>
         </form>
       </div>

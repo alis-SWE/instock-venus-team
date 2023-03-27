@@ -3,7 +3,7 @@ import close from '../../assets/icons/close-24px.svg';
 import './DeleteWarehouse.scss';
 
 
-const DeleteWarehouse = ({ closeModal, id, name }) => {
+const DeleteWarehouse = ({ closeModal, id, name, handleDelete }) => {
 
     const handleClick = () => {
         closeModal(false);
@@ -15,7 +15,7 @@ const DeleteWarehouse = ({ closeModal, id, name }) => {
             .catch((error) => {
                 console.log(error);
             })
-        
+        handleDelete();
     }
 
     return ( 

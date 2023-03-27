@@ -125,4 +125,10 @@
       justify-content: end;
     }
   }
+  &__cancel{
+    width: 50%;
+    @include tablet {
+      max-width: 4.375rem;
+    }
+  }
 }

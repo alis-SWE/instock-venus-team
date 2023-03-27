@@ -12,7 +12,6 @@
         margin: 1rem;
         margin-top: -4rem;
         background-color: $White;
-        //box-shadow: 0px 2px 5px 0px #13182C1A;
         overflow: hidden; 
         @include tablet {
             margin-top: -6rem;
@@ -70,11 +69,9 @@
     }
     &__label--tablet{
         width: 16.66%;
-
-
         @include tablet{
-           font-size: .75rem;
-           color: #5C667E;
+            font-size: .75rem;
+            color: #5C667E;
         }
     }
     &__label--tablet--action{
@@ -89,5 +86,8 @@
     }  
     input:focus {
         border: none;
+    }
+    &__edit-img{
+        fill: #2E66E6;
     }
 }
