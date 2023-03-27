@@ -79,9 +79,10 @@
             flex-direction: row;
         }
     }
-    &__label--tablet{
+    &__container--tablet{
         width: 22.5%;
-
+        display: flex;
+        align-items: center;
         @include tablet{
            font-size: .75rem;
            color: #5C667E;
@@ -89,10 +90,20 @@
        
         }
     }
-    &__label--tablet--action{
+    &__container--tablet--action{
         width: 10%;
-       text-align: right;
-       margin-right: 0rem;
+        text-align: right;
+        margin-right: 0rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+    &__label--tablet{
+        display: inline;
+        font-size: .75rem !important;
+    }
+    &__sort-icon{
+        max-height: 0.75rem;
     }
 
 }
+

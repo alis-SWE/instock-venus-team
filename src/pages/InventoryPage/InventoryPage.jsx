@@ -39,7 +39,7 @@ const InventoryPage = () => {
     //useEffect Function 
     useEffect(() => {
 
-            fetchInventory();
+        //    fetchInventory();
   
     }, [inventory, deleteInventory]);
 
