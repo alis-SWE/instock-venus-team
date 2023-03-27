@@ -6,11 +6,11 @@ import './DeleteInventoryList.scss';
 const DeleteInventoryList = ({ closeModal, id, name }) => {
 
     const handleClick = () => {
-        closeModal(false);
+        
         axios.delete('http://localhost:8080/inventory/' + id)
             .then((response) => {
                 console.log('Inventory deleted: ', response.data);
-                
+                closeModal(false);
             })
             .catch((error) => {
                 console.log(error);

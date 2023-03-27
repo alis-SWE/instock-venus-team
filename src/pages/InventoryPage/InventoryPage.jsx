@@ -38,16 +38,10 @@ const InventoryPage = () => {
 
     //useEffect Function 
     useEffect(() => {
-        if(inventory.length === 0){
+
             fetchInventory();
-        } else {
-
-        }
-    }, [inventory]);
-
-    useEffect(() => {
-        fetchInventory();
-    }, [deleteInventory]);
+  
+    }, [inventory, deleteInventory]);
 
 
     return (       
@@ -92,7 +86,7 @@ const InventoryPage = () => {
                     );
                 })}
             </div>
-            {deleteInventory && <DeleteInventoryList closeModal={setDeleteInventory} id={inventoryID} name={inventoryName} />}
+            {deleteInventory && <DeleteInventoryList closeModal={setDeleteInventory} id={inventoryID} name={inventoryName} handleDelete={fetchInventory} />}
         </div>  
     );
 }

@@ -38,11 +38,10 @@ const WarehousesPage = () => {
 
     //useEffect Function 
     useEffect(() => {
-        if(warehouses.length === 0){
             fetchWarehouse();
-        }
+    
         
-    }, [warehouses]);
+    }, [warehouses, deleteWarehouse]);
 
 
 
@@ -86,7 +85,7 @@ const WarehousesPage = () => {
                     );
                 })}
            </div>
-           {deleteWarehouse && <DeleteWarehouse closeModal={setDeleteWarehouse} id={warehouseID} name={warehouseName} handleDelete={handleDelete} />}
+           {deleteWarehouse && <DeleteWarehouse closeModal={setDeleteWarehouse} id={warehouseID} name={warehouseName}  />}
         </div>  
     );
 }
