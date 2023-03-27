@@ -42,8 +42,12 @@ const WarehousesPage = () => {
             fetchWarehouse();
     
         
-    }, [warehouses, deleteWarehouse]);
+    }, [deleteWarehouse]);
+    useEffect(() => {
+        fetchWarehouse();
 
+        
+    }, []);
 
 
     return (
