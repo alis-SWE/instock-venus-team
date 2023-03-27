@@ -7,6 +7,7 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import Button from "../../components/Button/Button";
 import Status from '../../components/Status/Status';
+import api from '../../utils/api'
 
 
 
@@ -19,7 +20,7 @@ const  InventoryItemPage = () => {
 
     const fetchInventory = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:8080/inventory/${id}`);
+            const { data } = await api.get(`/inventory/${id}`);
             console.log(data);
             setInventory(data)
         } catch (error) {

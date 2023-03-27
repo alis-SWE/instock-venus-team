@@ -8,6 +8,7 @@ import Button from "../../components/Button/Button";
 import "./InventoryPage.scss"
 import {Link} from "react-router-dom";
 import DeleteInventoryList from "../../components/DeleteInventoryList/DeleteInventoryList";
+import api from '../../utils/api'
 
 const InventoryPage = () => {
 
@@ -20,7 +21,7 @@ const InventoryPage = () => {
 
     const fetchInventory = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:8080/inventory?sort_by=${sortBy}&order_by=${orderBy}`);
+            const { data } = await api.get(`/inventory?sort_by=${sortBy}&order_by=${orderBy}`);
             console.log(data);
             setInventory(data)
         } catch (error) {

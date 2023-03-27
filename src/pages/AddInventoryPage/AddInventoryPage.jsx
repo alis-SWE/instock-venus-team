@@ -7,9 +7,7 @@ import CancelButton from '../../components/CancelButton/CancelButton'
 import FormError from '../../components/FormError/FormError'
 import backArrow from '../../assets/icons/arrow_back-24px.svg'
 import './AddInventoryPage.scss'
-
-//API variable
-const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:8080";
+import api from '../../utils/api'
 
 export default function AddInventoryPage() {
 
@@ -28,7 +26,7 @@ export default function AddInventoryPage() {
 
     // Get warehouse list
     useEffect(() => {
-        axios.get(API_URL + "/warehouse")
+        api.get("/warehouse")
             .then((response) => {
                 setWarehouseList(response.data);
                 })
@@ -92,7 +90,7 @@ export default function AddInventoryPage() {
         }
 
         // API call to post inventory object to DB
-        axios.post(`${API_URL}/inventory`, {
+        api.post(`/inventory`, {
             itemWarehouseId: itemWarehouseId,
             itemName: itemName,
             itemDescription: itemDescription,

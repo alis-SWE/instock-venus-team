@@ -6,6 +6,7 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import "./EditInventoryItem.scss";
 import axios from "axios";
 import FormError from '../../components/FormError/FormError'
+import api from '../../utils/api'
 
 export default function EditInventoryItem() {
   const { id } = useParams();
@@ -55,68 +56,63 @@ export default function EditInventoryItem() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    if (validateForm()) {
-      axios
-        .put(`http://localhost:8080/inventory/${id}`, formData)
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-
-  };
-
-  const getWarehouseList = () => {
-    axios
-      .get(`http://localhost:8080/warehouse/`)
-      .then((response) => {
-        setWarehouseList(response.data);
-      })
+  event.preventDefault();
+  if (validateForm()) {
+    api.put(`/inventory/${id}`, formData)
       .catch((error) => {
         console.error(error);
       });
-  };
+  }
+};
 
-  const getCategoryList = () => {
-    axios
-      .get(`http://localhost:8080/inventory/`)
-      .then((response) => {
-        const uniqueCategories = [];
-        response.data.forEach((item) => {
-          if (!uniqueCategories.includes(item.category)) {
-            uniqueCategories.push(item.category);
-          }
-        });
-        setCategoryList(uniqueCategories);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+const getWarehouseList = () => {
+  api.get('/warehouse/')
+    .then((response) => {
+      setWarehouseList(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
-  const getWarehouseNameFromId = (wid) => {
-    let f = "Not found"
-    warehouseList.forEach((item) => {
-        if (item.id == wid) {
-          f = item.warehouse_name;
-          return;
+const getCategoryList = () => {
+  api.get('/inventory/')
+    .then((response) => {
+      const uniqueCategories = [];
+      response.data.forEach((item) => {
+        if (!uniqueCategories.includes(item.category)) {
+          uniqueCategories.push(item.category);
         }
       });
-      return f;
-  }
+      setCategoryList(uniqueCategories);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
-  useEffect(() => {
-    getWarehouseList();
-    getCategoryList();
-    axios
-      .get(`http://localhost:8080/inventory/${id}`)
-      .then((response) => {
-        setFormData(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+const getWarehouseNameFromId = (wid) => {
+  let f = "Not found"
+  warehouseList.forEach((item) => {
+    if (item.id == wid) {
+      f = item.warehouse_name;
+      return;
+    }
+  });
+  return f;
+}
+
+useEffect(() => {
+  getWarehouseList();
+  getCategoryList();
+  api.get(`/inventory/${id}`)
+    .then((response) => {
+      setFormData(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}, []);
 
   return (
     <section className="edit-invitm-page">

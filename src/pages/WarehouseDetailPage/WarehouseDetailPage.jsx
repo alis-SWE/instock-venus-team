@@ -7,6 +7,7 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import InventoryList from '../../components/InventoryList/InventoryList';
 import DeleteInventoryList from '../../components/DeleteInventoryList/DeleteInventoryList';
+import api from '../../utils/api'
 
 export default function WarehouseDetailPage() {
 
@@ -19,7 +20,7 @@ export default function WarehouseDetailPage() {
     const fetchWarehouse = async () => {
         try {
             console.log(id)
-            const { data } = await axios.get(`http://localhost:8080/warehouse/${id}`);
+            const { data } = await api.get(`/warehouse/${id}`);
             console.log(data);
             setWarehouse(data)
         } catch (error) {

@@ -6,13 +6,14 @@ import deleteIcon from '../../assets/icons/delete_outline-24px.svg';
 import editIcon from '../../assets/icons/edit-24px.svg';
 import arrow from '../../assets/icons/chevron_right-24px.svg';
 import Status from '../Status/Status';
+import api from '../../utils/api'
 
 export default function InventoryList({ warehouseID, invID, invName, modalValue }) {
     const [inventory, setInventory] = useState([]);
     
     const fetchInventory = async () => {
         try {
-            const { data } = await axios.get("http://localhost:8080/inventory");
+            const { data } = await api.get("/inventory");
             console.log(data);
             setInventory(data)
         } catch (error) {

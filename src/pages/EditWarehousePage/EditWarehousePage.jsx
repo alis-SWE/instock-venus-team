@@ -6,6 +6,7 @@ import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import "./EditWarehousePage.scss";
 import axios from "axios";
 import FormError from '../../components/FormError/FormError'
+import api from '../../utils/api'
 
 export default function EditWarehousePage() {
   const { id } = useParams();
@@ -59,8 +60,8 @@ export default function EditWarehousePage() {
     event.preventDefault();
 
     if (validateForm()) { // validate the form
-      axios
-      .put(`http://localhost:8080/warehouse/${id}`, formData)
+      api
+      .put(`/warehouse/${id}`, formData)
       .catch((error) => {
         console.error(error);
       });
@@ -78,8 +79,8 @@ export default function EditWarehousePage() {
   }, [formData]);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8080/warehouse/${id}`)
+    api
+      .get(`/warehouse/${id}`)
       .then((response) => {
         setFormData(response.data);
       })
