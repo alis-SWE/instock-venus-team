@@ -41,15 +41,19 @@ const InventoryPage = () => {
 
             fetchInventory();
   
-    }, [inventory, deleteInventory]);
+    }, []);
+    useEffect(() => {
 
+        fetchInventory();
+
+}, [deleteInventory]);
 
     return (       
         <div className="inventories">
             <div className="inventories__container">
                 <div className="inventories__header">
                     <h1 className="inventories__title">Inventory</h1>
-                    <div class="inventories__search-container">
+                    <div className="inventories__search-container">
                         <input id="warehouse-search" name="inventory__search" placeholder="Search..."></input>
                         <img src={searchIcon} alt="Search Icon" className="inventories__search-icon"/>
                     </div>
