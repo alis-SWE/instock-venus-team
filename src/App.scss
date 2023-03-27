@@ -101,6 +101,10 @@ input::placeholder {
     color: $Slate;
 }
 
+.input--error {
+    border-color: $Red;
+}
+
 select {
     font-family: 'Titillium Web', sans-serif;
     border: solid $Cloud 1px;

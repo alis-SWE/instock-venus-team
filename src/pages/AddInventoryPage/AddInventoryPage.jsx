@@ -121,13 +121,13 @@ export default function AddInventoryPage() {
                         <div className="add-inventory-page__details-container">
                             <h2>Item Details</h2>
                             <h3>Item Name</h3>
-                            <input id="itemName" name="itemName" placeholder="Item Name"></input>
+                            <input className={itemNameError ? "input--error" : ""} id="itemName" name="itemName" placeholder="Item Name"></input>
                             <FormError showError={itemNameError}/>
                             <h3>Description</h3>
-                            <textarea id="itemDescription" name="itemDescription" placeholder="Please enter a brief item description..."></textarea>
+                            <textarea className={itemDescriptionError ? "input--error" : ""} id="itemDescription" name="itemDescription" placeholder="Please enter a brief item description..."></textarea>
                             <FormError showError={itemDescriptionError}/>
                             <h3>Category</h3>
-                            <select id="itemCategory" name="itemCategory">
+                            <select className={itemCategoryError ? "input--error" : ""} id="itemCategory" name="itemCategory">
                                 <option value="">Please select</option>
                                 <option value="Accessories">Accessories</option>
                                 <option value="Apparel">Apparel</option>
@@ -152,10 +152,10 @@ export default function AddInventoryPage() {
                             </div>
                             <FormError showError={itemStatusError}/>
                             <h3>Quantity</h3>
-                            <input type="number" id="itemQuantity" name="itemQuantity" placeholder="Item Quantity"></input>
+                            <input className={itemQuantityError ? "input--error" : ""} type="number" id="itemQuantity" name="itemQuantity" placeholder="Item Quantity"></input>
                             <FormError showError={itemQuantityError}/>
                             <h3>Warehouse</h3>
-                            <select id="itemWarehouse" name="itemWarehouse">
+                            <select className={itemWarehouseError ? "input--error" : ""} id="itemWarehouse" name="itemWarehouse">
                                 <option value="">Please select</option>
                                 {warehouseList.map((warehouse) => {
                                     return (

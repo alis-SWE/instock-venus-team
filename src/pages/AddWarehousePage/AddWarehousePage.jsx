@@ -125,31 +125,31 @@ export default function AddWarehousePage() {
                         <div className="add-warehouse-page__details-container">
                             <h2>Warehouse Details</h2>
                             <h3>Warehouse Name</h3>
-                            <input id="warehouseName" name="warehouseName" placeholder="Warehouse Name"></input>
+                            <input className={warehouseNameError ? "input--error" : ""} id="warehouseName" name="warehouseName" placeholder="Warehouse Name"></input>
                             <FormError showError={warehouseNameError}/>
                             <h3>Street Address</h3>
-                            <input id="warehouseStreetAddress" name="warehouseStreetAddress" placeholder="Street Address"></input>
+                            <input className={warehouseAddressError ? "input--error" : ""} id="warehouseStreetAddress" name="warehouseStreetAddress" placeholder="Street Address"></input>
                             <FormError showError={warehouseAddressError}/>
                             <h3>City</h3>
-                            <input id="warehouseCity" name="warehouseCity" placeholder="City"></input>
+                            <input className={warehouseCityError ? "input--error" : ""} id="warehouseCity" name="warehouseCity" placeholder="City"></input>
                             <FormError showError={warehouseCityError}/>
                             <h3>Warehouse Country</h3>
-                            <input id="warehouseCountry" name="warehouseCountry" placeholder="Country"></input>
+                            <input className={warehouseCountryError ? "input--error" : ""} id="warehouseCountry" name="warehouseCountry" placeholder="Country"></input>
                             <FormError showError={warehouseCountryError}/>
                         </div>
                         <div className="add-warehouse-page__contact-container">
                             <h2>Contact Details</h2>
                             <h3>Contact Name</h3>
-                            <input id="warehouseContactName" name="warehouseContactName" placeholder="Contact Name"></input>
+                            <input className={contactNameError ? "input--error" : ""} id="warehouseContactName" name="warehouseContactName" placeholder="Contact Name"></input>
                             <FormError showError={contactNameError}/>
                             <h3>Position</h3>
-                            <input id="warehouseContactPosition" name="warehouseContactPosition" placeholder="Position"></input>
+                            <input className={contactPositionError ? "input--error" : ""} id="warehouseContactPosition" name="warehouseContactPosition" placeholder="Position"></input>
                             <FormError showError={contactPositionError}/>
                             <h3>Phone Number</h3>
-                            <input id="warehousePhoneNumber" name="warehousePhoneNumber" placeholder="Phone Number"></input>
+                            <input className={contactPhoneError ? "input--error" : ""} id="warehousePhoneNumber" name="warehousePhoneNumber" placeholder="Phone Number"></input>
                             <FormError showError={contactPhoneError}/>
                             <h3>Email</h3>
-                            <input id="warehouseEmail" name="warehouseEmail" placeholder="Email"></input>
+                            <input className={contactEmailError ? "input--error" : ""} id="warehouseEmail" name="warehouseEmail" placeholder="Email"></input>
                             <FormError showError={contactEmailError}/>
                         </div>
                     </div>
