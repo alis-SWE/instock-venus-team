@@ -44,9 +44,7 @@ const WarehousesPage = () => {
         
     }, [warehouses]);
 
-    useEffect(() => {
-        fetchWarehouse();
-    }, [deleteWarehouse]);
+
 
     return (
         <div className="warehouses">
@@ -88,7 +86,7 @@ const WarehousesPage = () => {
                     );
                 })}
            </div>
-           {deleteWarehouse && <DeleteWarehouse closeModal={setDeleteWarehouse} id={warehouseID} name={warehouseName} />}
+           {deleteWarehouse && <DeleteWarehouse closeModal={setDeleteWarehouse} id={warehouseID} name={warehouseName} handleDelete={handleDelete} />}
         </div>  
     );
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useParams, Link } from "react-router-dom";
+import { Routes, Route, useParams, Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import CancelButton from "../../components/CancelButton/CancelButton";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
@@ -19,6 +19,8 @@ export default function EditWarehousePage() {
     contact_phone: "",
     contact_email: "",
   });
+  
+  const navigate = useNavigate();
 
   const [errors, setErrors] = useState({
     warehouse_name: false,
@@ -64,6 +66,12 @@ export default function EditWarehousePage() {
       });
     }
   };
+
+  const handleCancel = (event) => {
+    event.preventDefault();
+
+    navigate("/");
+  }
 
   useEffect(() => {
     validateForm();
@@ -171,7 +179,7 @@ export default function EditWarehousePage() {
             </div>
           </div>
           <div className="edit-warehouse-page__button-container">
-            <CancelButton />
+            <CancelButton handleCancel={handleCancel} />
             <Button buttonText="Save" type="submit" />
           </div>
         </form>

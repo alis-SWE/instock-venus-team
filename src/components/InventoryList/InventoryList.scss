@@ -13,16 +13,47 @@
         }
     }
     &__label--tablet{
-        width: 16.66%;
-
+        width: 20%;
+        
 
         @include tablet{
            font-size: .75rem;
            color: #5C667E;
         }
+        &--action{
+            width: 20%;
+            text-align: right;
+        }
+    }
+}
+
+.inventory-wh{
+    &__status-container{ 
+        width: 50%;
+        max-width: 186px;
+
+    }
+
+    &__col-1{
+        @include tablet{
+            width: 40%;
+            max-width: 22.8rem;
+        }
+    }
+    &__col-2{
+        @include tablet{
+            width: 45%;
+        }
+    }
+    &__info{
+        @include tablet{
+            margin-right: 0;
+            width: 50%;
+            max-width: 186px;
+        }
     }
     &__label--tablet--action{
-        width: 16.66%;
+        width: 20%;
         text-align: right;
     }
 }

@@ -27,7 +27,7 @@ export default function WarehouseCard( { warehouse, address, city, country,conta
                     <p className="warehouse__label">ADDRESS</p>
                     <p>{`${address}, ${city}, ${country}`}</p>
                 </div>
-                    <img src={deleteIcon} alt="" className='warehouse__delete' onClick={handleClick}/>
+                    <img src={deleteIcon} alt="" className='warehouse__delete-img' onClick={handleClick}/>
             </div>
             <div className="warehouse__col-2"> 
                 <div className="warehouse__name-container">
@@ -40,13 +40,13 @@ export default function WarehouseCard( { warehouse, address, city, country,conta
                     <p>{contactEmail}</p>
                 </div>
                 <Link to={`warehouse/edit/${id}`} className="warehouse__edit">
-                    <svg src={editIcon} alt="" className="warehouse__edit-img"/>
+                    <img src={editIcon} alt="" className="warehouse__edit-img"/>
                 </Link>
             </div>
             <div className="warehouse__actions-container">
                 <img src={deleteIcon} alt="" className='warehouse__delete--tablet' onClick={handleClick}/>
-                <Link className="warehouse__edit--tablet">
-                    <svg src={editIcon} alt="edit icon" className="warehouse__edit-img"/>
+                <Link className="warehouse__edit--tablet" to={`warehouse/edit/${id}`} >
+                    <img src={editIcon} alt="edit icon" className="warehouse__edit-img warehouse__edit--tablet"/>
                 </Link>
             </div>
         </div>

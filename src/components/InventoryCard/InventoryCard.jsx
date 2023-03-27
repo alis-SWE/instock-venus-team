@@ -66,12 +66,12 @@ export default function InventoryCard({ id, itemName, warehouseId,category, stat
                         <p className="inventory__label">WAREHOUSE</p>
                         <p>{warehouse}</p>
                 </div>
-                <Link to={`inventory/edit/${id}`} className="inventory__edit">
+                <Link to={`/inventory/edit/${id}`} className="inventory__edit">
                     <img src={editIcon} alt=""/>
                 </Link>
             </div>
             <div className="inventory__actions-container">
-                    <img src={deleteIcon} alt="" onClick={handleClick}/>
+                    <img src={deleteIcon} alt="" onClick={handleClick} className="inventory__delete--tablet"/>
                 <Link to={`edit/${id}`} className="inventory__edit--tablet">
                     <img src={editIcon} alt="edit icon"/>
                 </Link>

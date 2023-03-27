@@ -115,15 +115,22 @@
             display: none;
         }
     }
-    &__delete{
+    &__delete-img{
         max-width: 24px;
+        max-height: 24px;
         @include tablet {
             display: none;
         }
     }
     &__edit-img{
         max-width: 24px;
-        fill: #2E66E5;
+        max-height: 24px;
+        fill: black;
+    }
+    &__delete--tablet{
+        max-width: 24px;
+        max-height: 24px;
+  
     }
 
 }
