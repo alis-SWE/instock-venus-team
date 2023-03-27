@@ -41,29 +41,29 @@ export default function InventoryCard({ id, itemName, warehouseId,category, stat
         <div className="inventory">
             <div className="inventory__col-1">
                 <div className="inventory__id-container">
-                    <p className="inventory__label">INVENTORY ITEM</p>
+                    <h4 className="inventory__label">INVENTORY ITEM</h4>
                     <Link to={`/inventory/${id}`} style={{ display: 'flex', alignItems: 'center' }}>
                         <p>{itemName}</p>
                         <img className="inventory__arrow-icon" src={arrow} alt="delete icon"/>
                     </Link>
                 </div>
                 <div className="inventory__address-container">
-                    <p className="inventory__label">CATEGORY</p>
+                    <h4 className="inventory__label">CATEGORY</h4>
                     <p>{category}</p>
                 </div>
                     <img src={deleteIcon} alt="" className="inventory__delete" onClick={handleClick}/>
             </div>
             <div className="inventory__col-2">
                 <div className="inventory__name-container">
-                    <p className="inventory__label">STATUS</p>
+                    <h4 className="inventory__label">STATUS</h4>
                     <Status status={status}/>
                 </div>
                 <div className="inventory__info-container">
-                        <p className="inventory__label">QTY</p>
+                        <h4 className="inventory__label">QTY</h4>
                         <p>{quantity}</p>
                 </div>
                 <div className="inventory__info-container">
-                        <p className="inventory__label">WAREHOUSE</p>
+                        <h4 className="inventory__label">WAREHOUSE</h4>
                         <p>{warehouse}</p>
                 </div>
                 <Link to={`/inventory/edit/${id}`} className="inventory__edit">
