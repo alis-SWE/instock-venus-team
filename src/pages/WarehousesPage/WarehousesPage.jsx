@@ -14,10 +14,12 @@ const WarehousesPage = () => {
     const [deleteWarehouse, setDeleteWarehouse] = useState(false);
     const [warehouseID, setWarehouseID] = useState("");
     const [warehouseName, setWarehouseName] = useState("");
+    const [sortBy, setSortBy] = useState("warehouse_name");
+    const [orderBy, setOrderBy] = useState("asc");
     
     const fetchWarehouse = async () => {
         try {
-            const { data } = await axios.get("http://localhost:8080/warehouse");
+            const { data } = await axios.get(`http://localhost:8080/warehouse?sort_by=${sortBy}&order_by=${orderBy}`);
             console.log(data);
             setWarehouses(data);
         } catch (error) {
@@ -36,6 +38,17 @@ const WarehousesPage = () => {
         console.log(warehouseName);
     };
 
+    const handleSort = (sort_by) => {
+        if (orderBy === "desc") {
+            setOrderBy("asc");
+        }  else {
+            setOrderBy("desc");
+        }
+        setSortBy(sort_by);
+
+        fetchWarehouse();
+    }
+
 
     //useEffect Function 
     useEffect(() => {
@@ -44,6 +57,7 @@ const WarehousesPage = () => {
         
     }, [deleteWarehouse]);
     useEffect(() => {
+        setOrderBy("desc")
         fetchWarehouse();
 
         
@@ -67,26 +81,25 @@ const WarehousesPage = () => {
                 <div className='warehouses__labels--tablet'>
                     <div className="warehouses__container--tablet">
                         <h4 className="warehouse__label--tablet">WAREHOUSE</h4>
-                        <img src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
+                        <img onClick={() => {handleSort("warehouse_name")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
                     </div>
                     <div className="warehouses__container--tablet">
                         <h4 className="warehouse__label--tablet">ADDRESS</h4>
-                        <img src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
+                        <img onClick={() => {handleSort("address")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
 
                     </div>
                     <div className="warehouses__container--tablet">
                         <h4 className="warehouse__label--tablet">CONTACT NAME</h4>
-                        <img src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
+                        <img onClick={() => {handleSort("contact_name")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
 
                     </div>
                     <div className="warehouses__container--tablet">
                         <h4 className="warehouse__label--tablet">CONTACT INFORMATION</h4>
-                        <img src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
+                        <img onClick={() => {handleSort("contact_email")}} src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
 
                     </div>
                     <div className="warehouses__container--tablet warehouses__container--tablet--action ">
                         <h4 className="warehouse__label--tablet warehouses__label--tablet--action">ACTIONS</h4>
-                        <img src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
 
                     </div>
                 </div>
