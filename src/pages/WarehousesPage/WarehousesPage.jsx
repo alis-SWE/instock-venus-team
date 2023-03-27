@@ -6,6 +6,7 @@ import WarehouseCard from "../../components/WarehouseCard/WarehouseCard";
 import searchIcon from "../../assets/icons/search-24px.svg"
 import { Link } from "react-router-dom";
 import DeleteWarehouse from "../../components/DeleteWarehouse/DeleteWarehouse";
+import sortIcon from "../../assets/icons/sort-24px.svg"
 
 const WarehousesPage = () => {
 
@@ -64,11 +65,30 @@ const WarehousesPage = () => {
                 
                 </div>
                 <div className='warehouses__labels--tablet'>
-                    <div className="warehouses__label--tablet">WAREHOUSE</div>
-                    <div className="warehouses__label--tablet">ADDRESS</div>
-                    <div className="warehouses__label--tablet">CONTACT NAME</div>
-                    <div className="warehouses__label--tablet">CONTACT INFORMATION</div>
-                    <div className="warehouses__label--tablet warehouses__label--tablet--action">ACTIONS</div>
+                    <div className="warehouses__container--tablet">
+                        <h4 className="warehouse__label--tablet">WAREHOUSE</h4>
+                        <img src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
+                    </div>
+                    <div className="warehouses__container--tablet">
+                        <h4 className="warehouse__label--tablet">ADDRESS</h4>
+                        <img src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
+
+                    </div>
+                    <div className="warehouses__container--tablet">
+                        <h4 className="warehouse__label--tablet">CONTACT NAME</h4>
+                        <img src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
+
+                    </div>
+                    <div className="warehouses__container--tablet">
+                        <h4 className="warehouse__label--tablet">CONTACT INFORMATION</h4>
+                        <img src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
+
+                    </div>
+                    <div className="warehouses__container--tablet warehouses__container--tablet--action ">
+                        <h4 className="warehouse__label--tablet warehouses__label--tablet--action">ACTIONS</h4>
+                        <img src={sortIcon} alt="Sort Icon" className="warehouses__sort-icon"/>
+
+                    </div>
                 </div>
                 {warehouses.length > 0 && warehouses.map((warehouse, i) => {
                     return (
