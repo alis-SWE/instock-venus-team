@@ -140,11 +140,11 @@ export default function AddInventoryPage() {
                             <h3>Status</h3>
                             <div className="add-inventory-page__status-container">
                                 <div className="add-inventory-page__radio-container">
-                                    <input className="radio" type="radio" id="itemInStock" name="itemStatus" value="In stock"/>
+                                    <input className="radio" type="radio" id="itemInStock" name="itemStatus" value="In Stock"/>
                                     <label className="radio-label" htmlFor="itemInStock">In stock</label>
                                 </div>
                                 <div className="add-inventory-page__radio-container">
-                                    <input className="radio" type="radio" id="itemOutOfStock" name="itemStatus" value="Out of stock"/>
+                                    <input className="radio" type="radio" id="itemOutOfStock" name="itemStatus" value="Out of Stock"/>
                                     <label className="radio-label" htmlFor="itemOutOfStock">Out of stock</label>
                                 </div>
                             </div>
