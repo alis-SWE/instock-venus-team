@@ -68,18 +68,18 @@ export default function WarehouseDetailPage() {
                 </div>
                 <div className="warehouse-pg__details">
                     <div className='warehouse-pg__address-container'>
-                        <p className="warehouse-pg__label">WAREHOUSE ADDRESS</p>
+                        <h4 className="warehouse-pg__label">WAREHOUSE ADDRESS</h4>
                         <p className="warehouse-pg__address">{warehouse.address + ", "}</p>
                         <p className="warehouse-pg__address">{warehouse.city + ", " + warehouse.country}</p>
                     </div>
                     <div className='warehouse-pg__contact-container'>
                         <div className='warehouse-pg__contact'>
-                            <p className="warehouse-pg__label">CONTACT NAME</p>
+                            <h4 className="warehouse-pg__label">CONTACT NAME</h4>
                             <p className="warehouse-pg__name">{warehouse.contact_name}</p>
                             <p className="warehouse-pg__position">{warehouse.contact_position}</p>
                         </div>
                         <div className='warehouse-pg__information-container'>
-                            <p className="warehouse-pg__label">CONTACT INFORMATION</p>
+                            <h4 className="warehouse-pg__label">CONTACT INFORMATION</h4>
                             <p className="warehouse-pg__phone">{warehouse.contact_phone}</p>
                             <p className="warehouse-pg__email">{warehouse.contact_email}</p>
                         </div>

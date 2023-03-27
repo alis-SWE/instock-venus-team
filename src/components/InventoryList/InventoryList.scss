@@ -6,14 +6,17 @@
     &__labels--tablet{
         display: none;
         
+        
         @include tablet{
-            padding: 0 1.5rem;
+            background-color: $Light-Grey;
+            padding: 0.75rem 1.5rem;
             display: flex;
             flex-direction: row;
         }
     }
     &__label--tablet{
         width: 20%;
+
         
 
         @include tablet{

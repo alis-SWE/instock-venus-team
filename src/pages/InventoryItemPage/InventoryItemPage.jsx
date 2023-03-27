@@ -57,27 +57,27 @@ const  InventoryItemPage = () => {
                 <div className="inventory-pg__item-container">
                 <div className="inventory-pg__item-details">
                         <div className='inventory-pg__description'>
-                            <p className="inventory-pg__label">DESCRIPTION:</p>
+                            <h4 className="inventory-pg__label">DESCRIPTION:</h4>
                             <p className="inventory-pg__description-text">{inventory.description}</p>
                         </div>
                         <div className='inventory-pg__category'>
-                            <p className="inventory-pg__label">CATEGORY:</p> 
+                            <h4 className="inventory-pg__label">CATEGORY:</h4> 
                             <p className="inventory-pg__quantity-text">{inventory.category}</p>
                         </div>
                     </div>
                     <div className="inventory-pg__warehouse-details">
                         <div className='inventory-pg__qty-container'>
                             <div className='inventory-pg__status'>
-                                <p className="inventory-pg__label">STATUS:</p>
+                                <h4 className="inventory-pg__label">STATUS:</h4>
                                 <Status status={inventory.status}/>
                             </div>
                             <div className='inventory-pg__quantity'>
-                                <p className="inventory-pg__label">QUANTITY:</p>
+                                <h4 className="inventory-pg__label">QUANTITY:</h4>
                                 <p className="inventory-pg__quantity-text">{inventory.quantity}</p>
                             </div>
                         </div>
                         <div className='inventory-pg__warehouse'>
-                            <p className="inventory-pg__label">WAREHOUSE:</p>
+                            <h4 className="inventory-pg__label">WAREHOUSE:</h4>
                             <p className="inventory-pg__warehouse-text">{inventory.warehouse_name}</p>
                         </div>
                     </div>

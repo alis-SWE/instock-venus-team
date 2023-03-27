@@ -41,11 +41,11 @@ export default function InventoryList({ warehouseID, invID, invName, modalValue 
             <div className="inventory-list__container">
 
                 <div className='inventory-list__labels--tablet'>
-                    <div className="inventory-list__label--tablet">INVENTORY ITEM</div>
-                    <div className="inventory-list__label--tablet">CATEGORY</div>
-                    <div className="inventory-list__label--tablet">STATUS</div>
-                    <div className="inventory-list__label--tablet">QUANTITY</div>
-                    <div className="inventory-list__label--tablet inventory-list__label--tablet--action">ACTIONS</div>
+                    <h4 className="inventory-list__label--tablet">INVENTORY ITEM</h4>
+                    <h4 className="inventory-list__label--tablet">CATEGORY</h4>
+                    <h4 className="inventory-list__label--tablet">STATUS</h4>
+                    <h4 className="inventory-list__label--tablet">QUANTITY</h4>
+                    <h4 className="inventory-list__label--tablet inventory-list__label--tablet--action">ACTIONS</h4>
                 </div>
                 {inventory.length > 0 && inventory.filter(inventory => warehouseID === inventory.warehouse_id).map((inventory, i) => {
                         const handleClick = () => {

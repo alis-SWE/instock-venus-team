@@ -17,25 +17,25 @@ export default function WarehouseCard( { warehouse, address, city, country,conta
         <div className="warehouse">
             <div className="warehouse__col-1"> 
                 <div className="warehouse__id-container">
-                    <p className="warehouse__label">WAREHOUSE</p>
+                    <h4 className="warehouse__label">WAREHOUSE</h4>
                     <Link to={`warehouse/${id}`} style={{ display: 'flex', alignItems: 'center' }}>
                         <p>{warehouse}</p>
                         <img className="warehouse__arrow-icon" src={arrow} alt="delete icon"/>
                     </Link>
                 </div>
                 <div className="warehouse__address-container">
-                    <p className="warehouse__label">ADDRESS</p>
+                    <h4 className="warehouse__label">ADDRESS</h4>
                     <p>{`${address},`}<br/>{`${city}, ${country}`}</p>
                 </div>
                     <img src={deleteIcon} alt="" className='warehouse__delete-img' onClick={handleClick}/>
             </div>
             <div className="warehouse__col-2"> 
                 <div className="warehouse__name-container">
-                    <p className="warehouse__label">CONTACT NAME</p>
+                    <h4 className="warehouse__label">CONTACT NAME</h4>
                     <p>{contactName}</p>
                 </div>
                 <div className="warehouse__info-container">
-                    <p className="warehouse__label">CONTACT INFORMATION</p>
+                    <h4 className="warehouse__label">CONTACT INFORMATION</h4>
                     <p>{contactPhone}</p>
                     <p>{contactEmail}</p>
                 </div>
