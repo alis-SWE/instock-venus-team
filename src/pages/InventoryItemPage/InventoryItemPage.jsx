@@ -36,7 +36,7 @@ const  InventoryItemPage = () => {
         } else {
 
         }
-    }, [inventory]);
+    }, []);
 
 
     return (
