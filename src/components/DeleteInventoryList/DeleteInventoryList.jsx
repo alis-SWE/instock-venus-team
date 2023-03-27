@@ -1,13 +1,14 @@
 import axios from 'axios';
 import close from '../../assets/icons/close-24px.svg';
 import './DeleteInventoryList.scss';
+import api from '../../utils/api'
 
 
 const DeleteInventoryList = ({ closeModal, id, name }) => {
 
     const handleClick = () => {
         
-        axios.delete('http://localhost:8080/inventory/' + id)
+        api.delete('/inventory/' + id)
             .then((response) => {
                 console.log('Inventory deleted: ', response.data);
                 closeModal(false);

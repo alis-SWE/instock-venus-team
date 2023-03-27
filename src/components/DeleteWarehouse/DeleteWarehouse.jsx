@@ -1,13 +1,14 @@
 import axios from 'axios';
 import close from '../../assets/icons/close-24px.svg';
 import './DeleteWarehouse.scss';
+import api from '../../utils/api'
 
 
 const DeleteWarehouse = ({ closeModal, id, name }) => {
 
     const handleClick = () => {
         closeModal(false);
-        axios.delete('http://localhost:8080/warehouse/' + id)
+        api.delete('/warehouse/' + id)
             .then((response) => {
                 console.log('Warehouse deleted: ', response.data);
                 

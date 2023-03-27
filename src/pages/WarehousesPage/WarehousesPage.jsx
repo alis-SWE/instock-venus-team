@@ -7,6 +7,7 @@ import searchIcon from "../../assets/icons/search-24px.svg"
 import { Link } from "react-router-dom";
 import DeleteWarehouse from "../../components/DeleteWarehouse/DeleteWarehouse";
 import sortIcon from "../../assets/icons/sort-24px.svg"
+import api from '../../utils/api'
 
 const WarehousesPage = () => {
 
@@ -19,7 +20,7 @@ const WarehousesPage = () => {
     
     const fetchWarehouse = async () => {
         try {
-            const { data } = await axios.get(`http://localhost:8080/warehouse?sort_by=${sortBy}&order_by=${orderBy}`);
+            const { data } = await api.get(`/warehouse?sort_by=${sortBy}&order_by=${orderBy}`);
             console.log(data);
             setWarehouses(data);
         } catch (error) {

@@ -7,9 +7,7 @@ import CancelButton from '../../components/CancelButton/CancelButton'
 import FormError from '../../components/FormError/FormError'
 import backArrow from '../../assets/icons/arrow_back-24px.svg'
 import './AddWarehousePage.scss'
-
-// API variable
-const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:8080";
+import api from '../../utils/api'
 
 // Function to validate email inputs
 function validateEmail(email) {
@@ -94,7 +92,7 @@ export default function AddWarehousePage() {
         }
 
         // API call to post warehouse object to DB
-        axios.post(`${API_URL}/warehouse`, {
+        api.post(`/warehouse`, {
             name: name,
             streetAddress: streetAddress,
             city: city,
