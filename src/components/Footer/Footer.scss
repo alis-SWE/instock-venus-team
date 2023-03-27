@@ -7,8 +7,8 @@
     background-color: $Light-Grey;
 
     @include tablet {
-        // position: fixed;
-        // bottom: 0;
+        position: absolute;
+        bottom: 0;
     }
     
     &__text{
