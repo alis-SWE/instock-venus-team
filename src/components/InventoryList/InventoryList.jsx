@@ -28,10 +28,13 @@ export default function InventoryList({ warehouseID, invID, invName, modalValue 
         } else {
     
         }
-    }, [inventory, ]);
+    }, [inventory]);
+    useEffect(() => {
 
-
+            fetchInventory();
     
+    }, [modalValue]);
+
 
     return(
         <div className="inventory-list">
