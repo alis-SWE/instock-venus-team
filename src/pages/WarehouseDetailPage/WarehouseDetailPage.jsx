@@ -38,14 +38,9 @@ export default function WarehouseDetailPage() {
     };
 
     useEffect(() => {
-        if (id) {
-            fetchWarehouse();
-        }
-    }, [id])
+        fetchWarehouse();
+    }, [id, deleteInventory])
 
-    const  handleDelete = () => {
-        fetchWarehouse()
-    }
 
 
     // Render the component only when the id is not null
@@ -94,7 +89,7 @@ export default function WarehouseDetailPage() {
                     invID={(invId) => getInventoryID(invId)}
                     invName={(invname) => getInventoryName(invname)}
                 />
-                {deleteInventory && <DeleteInventoryList closeModal={setDeleteInventory} id={inventoryID} name={inventoryName} handleDelete={handleDelete} />}
+                {deleteInventory && <DeleteInventoryList closeModal={setDeleteInventory} id={inventoryID} name={inventoryName}  />}
             </div>
         </div>
     )

@@ -28,7 +28,7 @@ export default function InventoryList({ warehouseID, invID, invName, modalValue 
         } else {
     
         }
-    }, [inventory]);
+    }, [inventory, ]);
 
 
     
