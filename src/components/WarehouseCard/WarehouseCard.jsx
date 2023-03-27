@@ -25,7 +25,7 @@ export default function WarehouseCard( { warehouse, address, city, country,conta
                 </div>
                 <div className="warehouse__address-container">
                     <p className="warehouse__label">ADDRESS</p>
-                    <p>{`${address}, ${city}, ${country}`}</p>
+                    <p>{`${address},`}<br/>{`${city}, ${country}`}</p>
                 </div>
                     <img src={deleteIcon} alt="" className='warehouse__delete-img' onClick={handleClick}/>
             </div>

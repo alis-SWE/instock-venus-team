@@ -23,16 +23,10 @@
       display: flex;
       flex-direction: column;
       text-align: left;
-        height: 100vh;
+      height: 100%;
       @include tablet {
-        max-height: 270px;
-        width: 45%;
-        max-width: 600px;
-
-      }
-      @include desktop {
-        max-height: 216px;
-  
+        width: 31.25rem;
+        height: auto;
       }
   
       &__close {
@@ -59,15 +53,25 @@
       }
   
       &__footer {
-        margin-top: 24px;
+        width: 100%;
+        margin-top: auto;
         display: flex;
+        flex-direction: row;
 
-        align-items: center;
-        justify-content: flex-end;
-
+        @include tablet {
+          width: auto;
+          position: relative;
+          bottom: 0;
+          right: 0;
+          margin-top: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
       }
   
         &__cancel-button {
+          width: 100%;
           background-color: $White;
           border: 1px solid $Cloud;
           border-radius: 4px;
@@ -76,12 +80,16 @@
           border-radius: 1.125rem;
           cursor: pointer;
   
+          @include tablet {
+            width: auto;
+          }
           &__text {
             margin: 0;
           }
         }
   
         &__delete-button {
+          width: 100%;
           background-color: $Red;
           border: none;
           border-radius: 4px;
@@ -89,6 +97,9 @@
           cursor: pointer;
           border-radius: 1.125rem;
   
+          @include tablet {
+            width: auto;
+          }
           &__text {
             margin: 0;
             color: $White;
