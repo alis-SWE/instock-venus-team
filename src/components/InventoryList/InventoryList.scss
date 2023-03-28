@@ -33,14 +33,15 @@
 .inventory-wh{
     &__status-container{ 
         width: 50%;
-        max-width: 190px;
+        max-width: 11.625rem;
+        margin-right: 0;
 
     }
 
     &__col-1{
         @include tablet{
             width: 45%;
-            max-width: 23.75rem;
+            max-width: 23.25rem
         }
     }
     &__col-2{
@@ -52,7 +53,7 @@
         @include tablet{
             margin-right: 0;
             width: 50%;
-            max-width: 11.875rem;
+            max-width: 11.625rem;
 
         }
     }
