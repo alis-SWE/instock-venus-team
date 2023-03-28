@@ -62,6 +62,9 @@ export default function EditWarehousePage() {
     if (validateForm()) { // validate the form
       api
       .put(`/warehouse/${id}`, formData)
+      .then(() => {
+        navigate("/");
+      })
       .catch((error) => {
         console.error(error);
       });

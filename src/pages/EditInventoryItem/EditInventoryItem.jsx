@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useParams, Link } from "react-router-dom";
+import { Routes, Route, useParams, Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import CancelButton from "../../components/CancelButton/CancelButton";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
@@ -18,6 +18,9 @@ export default function EditInventoryItem() {
     quantity: "",
     warehouse_id: "",
   });
+
+  const navigate = useNavigate();
+
   const [warehouseList, setWarehouseList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
 
@@ -59,9 +62,12 @@ export default function EditInventoryItem() {
   event.preventDefault();
   if (validateForm()) {
     api.put(`/inventory/${id}`, formData)
-      .catch((error) => {
-        console.error(error);
-      });
+    .then(() => {
+      navigate("/inventory");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
 };
 
