@@ -7,11 +7,11 @@ import api from '../../utils/api'
 const DeleteWarehouse = ({ closeModal, id, name }) => {
 
     const handleClick = () => {
-        closeModal(false);
+        
         api.delete('/warehouse/' + id)
             .then((response) => {
-                console.log('Warehouse deleted: ', response.data);
-                
+                //success
+                closeModal(false);
             })
             .catch((error) => {
                 console.log(error);
