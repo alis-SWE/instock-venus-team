@@ -13,7 +13,7 @@ export default function InventoryList({ warehouseID, invID, invName, modalValue 
     const [inventory, setInventory] = useState([]);
     const [sortBy, setSortBy] = useState("warehouse_id");
     const [orderBy, setOrderBy] = useState("asc");
-
+    const [sortBusy, setSortBusy] = useState(false);
     
     const fetchInventory = async () => {
         try {
@@ -35,20 +35,21 @@ export default function InventoryList({ warehouseID, invID, invName, modalValue 
         }
     }, []);
     useEffect(() => {
-
-            fetchInventory();
-    
+        fetchInventory();
     }, [modalValue]);
+    useEffect(() => {
+        fetchInventory();
+    }, [sortBy, orderBy]);
 
     const handleSort = (sort_by) => {
-        if (orderBy === "desc") {
-            setOrderBy("asc");
-        }  else {
-            setOrderBy("desc");
+        if (!sortBusy) {
+            if (orderBy === "desc") {
+                setOrderBy("asc");
+            }  else {
+                setOrderBy("desc");
+            }
+            setSortBy(sort_by);
         }
-        setSortBy(sort_by);
-
-        fetchInventory();
     }
 
 
