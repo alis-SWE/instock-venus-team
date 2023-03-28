@@ -109,8 +109,8 @@ export default function AddInventoryPage() {
         <section className="add-inventory-page">
             <div className="add-inventory-page__container">
                 <div className="add-inventory-page__header-container">
-                    <Link to="/inventory">
-                        <img className="add-inventory-page__back-arrow" src={backArrow} alt="back arrow"/>
+                    <Link to="/inventory" className="add-inventory-page__back-arrow">
+                        <img  src={backArrow} alt="back arrow"/>
                     </Link>
                     <h1>Add New Inventory Item</h1>
                 </div>

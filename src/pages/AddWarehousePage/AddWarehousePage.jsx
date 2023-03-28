@@ -115,8 +115,8 @@ export default function AddWarehousePage() {
         <section className="add-warehouse-page">
             <div className="add-warehouse-page__container">
                 <div className="add-warehouse-page__header-container">
-                    <Link to="/">
-                        <img className="add-warehouse-page__back-arrow" src={backArrow} alt="back arrow"/>
+                    <Link to="/" className="add-warehouse-page__back-arrow" s>
+                        <img src={backArrow} alt="back arrow"/>
                     </Link>
                     <h1>Add New Warehouse</h1>
                 </div>

@@ -94,7 +94,7 @@ export default function EditWarehousePage() {
     <section className="edit-warehouse-page">
       <div className="edit-warehouse-page__container">
         <div className="edit-warehouse-page__header-container">
-          <Link to={"/"}>
+          <Link to={"/"} className="edit-warehouse-page__link">
             <img src={backArrow} alt="back arrow" />
           </Link>
           <h1>Edit Warehouse</h1>
