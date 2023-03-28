@@ -69,6 +69,9 @@ export default function EditInventoryItem() {
         }));
       }
       api.put(`/inventory/${id}`, formData)
+      .then(() => {
+        navigate("/inventory");
+      })
         .catch((error) => {
           console.error(error);
         });
@@ -128,7 +131,7 @@ useEffect(() => {
     <section className="edit-invitm-page">
       <div className="edit-invitm-page__container">
         <div className="edit-invitm-page__header-container">
-          <Link to={"/"} className="edit-invitm-page__link">
+          <Link to={"/inventory"} className="edit-invitm-page__link">
             <img src={backArrow} alt="back arrow" />
           </Link>
           <h1>Edit Inventory Item</h1>
