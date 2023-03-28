@@ -59,17 +59,19 @@ export default function EditInventoryItem() {
       ...prevFormData,
       [name]: value,
     }));
+    
+    if (formData.status === "Out of Stock") {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        ['quantity']: 0,
+      }));
+    }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (validateForm()) {
-      if (formData.status === "Out of Stock") {
-        setFormData((prevFormData) => ({
-          ...prevFormData,
-          ['quantity']: 0,
-        }));
-      }
+
       api.put(`/inventory/${id}`, formData)
       .then(() => {
         toast.success('Successfully updated item');
