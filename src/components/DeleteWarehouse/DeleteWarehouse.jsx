@@ -26,7 +26,7 @@ const DeleteWarehouse = ({ closeModal, id, name }) => {
             <div className="modal__container">
             <div className="modal__container__title"> 
                 <h1 className='modal__container__heading'>Delete {name} warehouse?</h1>
-                <img src={close} onClick= {() => closeModal(false)} alt="" className='modal__container__close'/>
+                <img src={close} onClick={() => closeModal(false)} alt="" className='modal__container__close'/>
             </div>
     
             <div className="modal__container__body">
@@ -37,12 +37,12 @@ const DeleteWarehouse = ({ closeModal, id, name }) => {
             <div className="modal__container__footer">
 
             
-            <button className="modal__container__cancel-button" onClick= {() => closeModal(false)}>
+            <button className="modal__container__cancel-button" onClick={() => closeModal(false)}>
                 <p className="modal__container__cancel-button__text" >Cancel</p>
             </button>
                 
     
-            <button className="modal__container__delete-button" onClick= {handleClick}>
+            <button className="modal__container__delete-button" onClick={handleClick}>
                 <p className="modal__container__delete-button__text" >Delete</p>
             </button>
             </div>
