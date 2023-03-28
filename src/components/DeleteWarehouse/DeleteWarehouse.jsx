@@ -2,7 +2,8 @@ import axios from 'axios';
 import close from '../../assets/icons/close-24px.svg';
 import './DeleteWarehouse.scss';
 import api from '../../utils/api'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DeleteWarehouse = ({ closeModal, id, name }) => {
 
@@ -11,6 +12,8 @@ const DeleteWarehouse = ({ closeModal, id, name }) => {
         api.delete('/warehouse/' + id)
             .then((response) => {
                 //success
+                toast.success('Successfully deleted warehouse');
+
                 closeModal(false);
             })
             .catch((error) => {
