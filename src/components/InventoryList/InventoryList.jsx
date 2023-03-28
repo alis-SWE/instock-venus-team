@@ -18,7 +18,6 @@ export default function InventoryList({ warehouseID, invID, invName, modalValue 
     const fetchInventory = async () => {
         try {
             const { data } = await api.get(`/inventory?sort_by=${sortBy}&order_by=${orderBy}`);
-            console.log(data);
             setInventory(data)
         } catch (error) {
             console.log("Failed to Fetch inventory Data" + error);

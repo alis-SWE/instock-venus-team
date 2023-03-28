@@ -19,9 +19,7 @@ export default function WarehouseDetailPage() {
 
     const fetchWarehouse = async () => {
         try {
-            console.log(id)
             const { data } = await api.get(`/warehouse/${id}`);
-            console.log(data);
             setWarehouse(data)
         } catch (error) {
             console.log("Failed to Fetch inventory Data" + error);
@@ -30,12 +28,10 @@ export default function WarehouseDetailPage() {
 
     const getInventoryID = (selectedInventory) => {
         setInventoryID(selectedInventory);
-        console.log(selectedInventory);
     };
 
     const getInventoryName = (iName) => {
         setInventoryName(iName);
-        console.log(inventoryName);
     };
 
     useEffect(() => {

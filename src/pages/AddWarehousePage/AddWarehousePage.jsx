@@ -8,6 +8,8 @@ import FormError from '../../components/FormError/FormError'
 import backArrow from '../../assets/icons/arrow_back-24px.svg'
 import './AddWarehousePage.scss'
 import api from '../../utils/api'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Function to validate email inputs
 function validateEmail(email) {
@@ -103,6 +105,8 @@ export default function AddWarehousePage() {
             contactEmail: contactEmail,
         })
         .then(() => {
+            toast.success('Successfully created warehouse');
+
             navigate("/");
             event.target.reset();
         })

@@ -10,7 +10,7 @@ import EditInventoryItem from './pages/EditInventoryItem/EditInventoryItem';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import InventoryItemPage from './pages/InventoryItemPage/InventoryItemPage';
-
+import { ToastContainer, toast } from 'react-toastify';
 import './App.scss'
 
 
@@ -30,6 +30,7 @@ function App() {
           <Route path='/warehouse/edit/:id' element={<EditWarehousePage/>}></Route>
           <Route path='/inventory/edit/:id' element={<EditInventoryItem/>}></Route>
       </Routes>
+      <ToastContainer />
       <Footer />
       </BrowserRouter>
   </div>

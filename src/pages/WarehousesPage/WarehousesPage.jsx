@@ -22,7 +22,6 @@ const WarehousesPage = () => {
     const fetchWarehouse = async () => {
         try {
             const { data } = await api.get(`/warehouse?sort_by=${sortBy}&order_by=${orderBy}`);
-            console.log(data);
             setWarehouses(data);
         } catch (error) {
             console.log("Failed to Fetch Warehouses Data" + error);
@@ -32,12 +31,10 @@ const WarehousesPage = () => {
         
     const getWarehouseID = (selectedWarehouse) => {
         setWarehouseID(selectedWarehouse);
-        console.log(selectedWarehouse);
     };
 
     const getWarehouseName = (whName) => {
         setWarehouseName(whName);
-        console.log(warehouseName);
     };
 
     const handleSort = (sort_by) => {
