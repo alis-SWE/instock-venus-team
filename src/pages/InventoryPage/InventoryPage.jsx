@@ -100,7 +100,6 @@ const InventoryPage = () => {
                     </div>
                     <div className="inventories__container--tablet">
                         <h4 className="inventories__label--tablet inventories__label--tablet--action">ACTIONS</h4>
-                        <img src={sortIcon} alt="Sort Icon" className="inventories__sort-icon"/>
                     </div>
                 </div>
                 {inventory.length > 0 && inventory.map((inventory, i) => {
