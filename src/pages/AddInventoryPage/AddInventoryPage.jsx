@@ -8,6 +8,8 @@ import FormError from '../../components/FormError/FormError'
 import backArrow from '../../assets/icons/arrow_back-24px.svg'
 import './AddInventoryPage.scss'
 import api from '../../utils/api'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function AddInventoryPage() {
 
@@ -99,6 +101,8 @@ export default function AddInventoryPage() {
             itemQuantity: itemQuantity,
         })
         .then(() => {
+            toast.success('Successfully created item');
+
             navigate("/inventory");
             event.target.reset();
             })

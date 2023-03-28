@@ -8,6 +8,8 @@ import axios from "axios";
 import FormError from '../../components/FormError/FormError'
 import api from '../../utils/api'
 import validator from '../../utils/validator'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function EditInventoryItem() {
   const { id } = useParams();
@@ -70,6 +72,8 @@ export default function EditInventoryItem() {
       }
       api.put(`/inventory/${id}`, formData)
       .then(() => {
+        toast.success('Successfully updated item');
+
         navigate("/inventory");
       })
         .catch((error) => {

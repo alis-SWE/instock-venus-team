@@ -8,6 +8,8 @@ import axios from "axios";
 import FormError from '../../components/FormError/FormError'
 import api from '../../utils/api'
 import validator from '../../utils/validator'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function EditWarehousePage() {
   const { id } = useParams();
@@ -64,6 +66,7 @@ export default function EditWarehousePage() {
       api
       .put(`/warehouse/${id}`, formData)
       .then(() => {
+        toast.success('Successfully updated warehouse');
         navigate("/");
       })
       .catch((error) => {

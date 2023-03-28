@@ -2,7 +2,8 @@ import axios from 'axios';
 import close from '../../assets/icons/close-24px.svg';
 import './DeleteInventoryList.scss';
 import api from '../../utils/api'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DeleteInventoryList = ({ closeModal, id, name }) => {
 
@@ -10,6 +11,8 @@ const DeleteInventoryList = ({ closeModal, id, name }) => {
         
         api.delete('/inventory/' + id)
             .then((response) => {
+                toast.success('Successfully deleted item');
+
                 closeModal(false);
             })
             .catch((error) => {
