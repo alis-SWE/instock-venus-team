@@ -155,7 +155,7 @@ export default function AddWarehousePage() {
                     </div>
                     <div className="add-warehouse-page__button-container">
                         <Link className="add-warehouse-page__button" to="/"><CancelButton /></Link>
-                        <Button className="add-warehouse-page__button" buttonText="+ Add Warehouse"/>
+                        <Button className="add-warehouse-page__button" buttonText="+ Add Warehouse" isHalf={false}/>
                     </div>
                 </form>
             </div>
