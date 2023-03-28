@@ -18,14 +18,18 @@ const InventoryPage = () => {
     const [inventoryName, setInventoryName] = useState("");
     const [sortBy, setSortBy] = useState("warehouse_id");
     const [orderBy, setOrderBy] = useState("asc");
+    const [sortBusy, setSortBusy] = useState(false);
 
     const fetchInventory = async () => {
         try {
+            setSortBusy(true)
             const { data } = await api.get(`/inventory?sort_by=${sortBy}&order_by=${orderBy}`);
             console.log(data);
             setInventory(data)
+            setSortBusy(false)
         } catch (error) {
             console.log("Failed to Fetch inventory Data" + error);
+            setSortBusy(false)
         }
 
     }
@@ -41,22 +45,19 @@ const InventoryPage = () => {
     };
 
     const handleSort = (sort_by) => {
-        if (orderBy === "desc") {
-            setOrderBy("asc");
-        }  else {
-            setOrderBy("desc");
+        if (!sortBusy) {
+            if (orderBy === "desc") {
+                setOrderBy("asc");
+            }  else {
+                setOrderBy("desc");
+            }
+            setSortBy(sort_by);
         }
-        setSortBy(sort_by);
-
-        fetchInventory();
     }
-
-    //useEffect Function 
     useEffect(() => {
-        setOrderBy("desc")
-        //    fetchInventory();
-  
-    }, []);
+        fetchInventory();
+    }, [sortBy, orderBy]);
+    
     useEffect(() => {
 
         fetchInventory();
