@@ -24,11 +24,9 @@ const InventoryPage = () => {
         try {
             setSortBusy(true)
             const { data } = await api.get(`/inventory?sort_by=${sortBy}&order_by=${orderBy}`);
-            console.log(data);
             setInventory(data)
             setSortBusy(false)
         } catch (error) {
-            console.log("Failed to Fetch inventory Data" + error);
             setSortBusy(false)
         }
 
@@ -36,12 +34,10 @@ const InventoryPage = () => {
 
     const getInventoryID = (selectedInventory) => {
         setInventoryID(selectedInventory);
-        console.log(selectedInventory);
     };
 
     const getInventoryName = (iName) => {
         setInventoryName(iName);
-        console.log(inventoryName);
     };
 
     const handleSort = (sort_by) => {

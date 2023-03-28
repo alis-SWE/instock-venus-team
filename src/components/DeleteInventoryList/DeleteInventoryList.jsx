@@ -10,7 +10,6 @@ const DeleteInventoryList = ({ closeModal, id, name }) => {
         
         api.delete('/inventory/' + id)
             .then((response) => {
-                console.log('Inventory deleted: ', response.data);
                 closeModal(false);
             })
             .catch((error) => {
