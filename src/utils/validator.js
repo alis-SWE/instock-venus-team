@@ -17,11 +17,13 @@ const validator = {
   },
 
   isNumber: (value) => {
-    if (value == "") {
-      return false; // not a number
+    // Check if value is null, undefined, or an empty string
+    if (value === null || value === undefined || value === "") {
+      return false;
     }
-    // Check if value is a number using isNaN() function
-    return !isNaN(value);
+    // Convert value to a number and check if it is NaN
+    const numValue = Number(value);
+    return !isNaN(numValue);
   },
 
   isValidPhoneNumber: (phoneNumber) => {
