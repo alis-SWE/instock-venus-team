@@ -28,7 +28,8 @@
     }
 
     &__back-arrow {
-        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
     }
 
     &__data-container {

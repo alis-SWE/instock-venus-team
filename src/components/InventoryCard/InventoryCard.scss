@@ -89,8 +89,7 @@
 
         }
     }
-    &__name-container{
-        margin-bottom: 1rem;
+    &__status-container{
         @include tablet{
             width: 50%;
             margin-bottom: 0rem;
@@ -100,6 +99,7 @@
     }
     &__address-container{
         margin-bottom: 1.1875rem;
+        flex-grow: 1;
         @include tablet{
             width: 50%;
             margin-bottom: 0rem;
@@ -119,7 +119,12 @@
         }
     }
     &__delete {
-        margin-top: 4rem;
+        display: flex;
+        max-height: 24px;
+        justify-content: flex-end;
+        @include tablet {
+            display: none;
+        }
     }
     &__delete--tablet{
         max-width: 24px;

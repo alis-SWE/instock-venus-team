@@ -7,6 +7,7 @@ import "./EditWarehousePage.scss";
 import axios from "axios";
 import FormError from '../../components/FormError/FormError'
 import api from '../../utils/api'
+import validator from '../../utils/validator'
 
 export default function EditWarehousePage() {
   const { id } = useParams();
@@ -36,14 +37,14 @@ export default function EditWarehousePage() {
 
   const validateForm = () => {
     setErrors({
-      warehouse_name: formData.warehouse_name.length < 2 || formData.warehouse_name.length > 20,
-      address: formData.address.length < 2 || formData.address.length > 20,
-      city: formData.city.length < 2 || formData.city.length > 20,
-      country: formData.country.length < 2 || formData.country.length > 20,
-      contact_name: formData.contact_name.length < 2 || formData.contact_name.length > 20,
-      contact_position: formData.contact_position.length < 2 || formData.contact_position.length > 20,
-      contact_phone: formData.contact_phone.length < 2 || formData.contact_phone.length > 20,
-      contact_email: formData.contact_email.length < 2 || formData.contact_email.length > 20,
+      warehouse_name: formData.warehouse_name.length < 2 || formData.warehouse_name.length > 50,
+      address: formData.address.length < 2 || formData.address.length > 50,
+      city: formData.city.length < 2 || formData.city.length > 50,
+      country: formData.country.length < 2 || formData.country.length > 50,
+      contact_name: formData.contact_name.length < 2 || formData.contact_name.length > 50,
+      contact_position: formData.contact_position.length < 2 || formData.contact_position.length > 50,
+      contact_phone: validator.isValidPhoneNumber(formData.contact_phone),
+      contact_email: !validator.isValidEmail(formData.contact_email),
     })
     return (Object.values(errors).every((value) => value === false))
   }
@@ -96,7 +97,7 @@ export default function EditWarehousePage() {
     <section className="edit-warehouse-page">
       <div className="edit-warehouse-page__container">
         <div className="edit-warehouse-page__header-container">
-          <Link to={"/"}>
+          <Link to={"/"} className="edit-warehouse-page__link">
             <img src={backArrow} alt="back arrow" />
           </Link>
           <h1>Edit Warehouse</h1>

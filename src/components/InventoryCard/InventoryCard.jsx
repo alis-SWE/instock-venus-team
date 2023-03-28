@@ -31,10 +31,10 @@ export default function InventoryCard({ id, itemName, warehouse, category, statu
                     <h4 className="inventory__label">CATEGORY</h4>
                     <p>{category}</p>
                 </div>
-                    <img src={deleteIcon} alt="" className="inventory__delete" onClick={handleClick}/>
+                <img src={deleteIcon} alt="" className="inventory__delete" onClick={handleClick}/>
             </div>
             <div className="inventory__col-2">
-                <div className="inventory__name-container">
+                <div className="inventory__status-container">
                     <h4 className="inventory__label">STATUS</h4>
                     <Status status={status}/>
                 </div>
