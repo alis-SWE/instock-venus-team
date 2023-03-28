@@ -17,7 +17,8 @@ const WarehousesPage = () => {
     const [warehouseName, setWarehouseName] = useState("");
     const [sortBy, setSortBy] = useState("warehouse_name");
     const [orderBy, setOrderBy] = useState("asc");
-    
+    const [sortBusy, setSortBusy] = useState(false);
+
     const fetchWarehouse = async () => {
         try {
             const { data } = await api.get(`/warehouse?sort_by=${sortBy}&order_by=${orderBy}`);
@@ -40,30 +41,27 @@ const WarehousesPage = () => {
     };
 
     const handleSort = (sort_by) => {
-        if (orderBy === "desc") {
-            setOrderBy("asc");
-        }  else {
-            setOrderBy("desc");
+        if (!sortBusy) {
+            if (orderBy === "desc") {
+                setOrderBy("asc");
+            }  else {
+                setOrderBy("desc");
+            }
+            setSortBy(sort_by);
         }
-        setSortBy(sort_by);
-
-        fetchWarehouse();
     }
 
 
     //useEffect Function 
     useEffect(() => {
-            fetchWarehouse();
-    
-        
+        fetchWarehouse();
     }, [deleteWarehouse]);
     useEffect(() => {
-        setOrderBy("desc")
         fetchWarehouse();
-
-        
-    }, []);
-
+    }, [sortBy, orderBy]);
+    useEffect(() => {
+        fetchWarehouse();
+    }, []); // on page load
 
     return (
         <div className="warehouses">
