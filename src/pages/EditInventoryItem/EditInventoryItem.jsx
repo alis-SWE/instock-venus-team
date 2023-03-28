@@ -124,7 +124,7 @@ useEffect(() => {
     <section className="edit-invitm-page">
       <div className="edit-invitm-page__container">
         <div className="edit-invitm-page__header-container">
-          <Link to={"/"}>
+          <Link to={"/inventory"}>
             <img src={backArrow} alt="back arrow" />
           </Link>
           <h1>Edit Inventory Item</h1>
@@ -236,7 +236,7 @@ useEffect(() => {
             </div>
           </div>
           <div className="edit-invitm-page__button-container">
-            <Link to={"/"} className="edit-invitm-page__cancel">
+            <Link to={"/inventory"} className="edit-invitm-page__cancel">
               <CancelButton />
             </Link>
             <Button buttonText="Save" type="submit" isHalf={true}/>
