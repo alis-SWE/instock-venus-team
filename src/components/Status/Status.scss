@@ -14,8 +14,11 @@
     padding: 0.25rem;
     text-align: center;
     text-transform: uppercase;
+    margin-bottom: 1rem;
     @include tablet {
         max-width: 70px;
+        margin-bottom: 0rem;
+
     }
 
     &--in {

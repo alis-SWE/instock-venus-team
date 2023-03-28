@@ -7,6 +7,7 @@ import "./EditInventoryItem.scss";
 import axios from "axios";
 import FormError from '../../components/FormError/FormError'
 import api from '../../utils/api'
+import validator from '../../utils/validator'
 
 export default function EditInventoryItem() {
   const { id } = useParams();
@@ -35,11 +36,11 @@ export default function EditInventoryItem() {
 
   const validateForm = () => {
     setErrors({
-      item_name: formData.item_name.length < 2 || formData.item_name.length > 20,
+      item_name: formData.item_name.length < 2 || formData.item_name.length > 50,
       description: formData.description.length < 2 || formData.description.length > 400,
       category: formData.category.length < 2 || formData.category.length > 100,
-      status: formData.status.length < 2 || formData.status.length > 20,
-      quantity: formData.quantity.length < 1 || formData.quantity.length > 20,
+      status: formData.status.length < 2 || formData.status.length > 50,
+      quantity: !validator.isNumber(formData.quantity),
       warehouse_id: formData.warehouse_id.length < 2 || formData.warehouse_id.length > 100,
     })
     return (Object.values(errors).every((value) => value === false))
@@ -59,17 +60,20 @@ export default function EditInventoryItem() {
   };
 
   const handleSubmit = async (event) => {
-  event.preventDefault();
-  if (validateForm()) {
-    api.put(`/inventory/${id}`, formData)
-    .then(() => {
-      navigate("/inventory");
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  }
-};
+    event.preventDefault();
+    if (validateForm()) {
+      if (formData.status === "Out of Stock") {
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          ['quantity']: 0,
+        }));
+      }
+      api.put(`/inventory/${id}`, formData)
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  };
 
 const getWarehouseList = () => {
   api.get('/warehouse/')
@@ -124,7 +128,7 @@ useEffect(() => {
     <section className="edit-invitm-page">
       <div className="edit-invitm-page__container">
         <div className="edit-invitm-page__header-container">
-          <Link to={"/inventory"}>
+          <Link to={"/"} className="edit-invitm-page__link">
             <img src={backArrow} alt="back arrow" />
           </Link>
           <h1>Edit Inventory Item</h1>

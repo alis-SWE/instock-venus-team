@@ -55,7 +55,8 @@
     &__id-container{
         margin-bottom: 1rem;
         @include tablet{
-            width: 50%;
+
+            width: 212px;
             margin-bottom: 0rem;
 
 
@@ -67,7 +68,6 @@
         @include tablet{
             width: 50%;
             margin-bottom: 0rem;
-            margin-right: 1rem;
 
         }
     }
@@ -76,7 +76,6 @@
         @include tablet{
             width: 50%;
             margin-bottom: 0rem;
-            margin-right: 1rem;
 
 
         }
@@ -87,7 +86,6 @@
             width: 50%;
             align-items: center;
             margin-bottom: 0;
-            margin-right: 1rem;
 
         }
     }
