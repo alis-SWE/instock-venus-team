@@ -105,8 +105,10 @@ export default function AddWarehousePage() {
         .then(() => {
             navigate("/");
             event.target.reset();
-          })
-          .catch(error => console.log(error));
+        })
+        .catch(error => console.log(error));
+            
+
     }
 
     return (
