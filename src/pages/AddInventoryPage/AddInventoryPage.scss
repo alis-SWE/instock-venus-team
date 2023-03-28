@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.add-warehouse-page {
+.add-inventory-page {
     max-width: 64rem;
     margin: 0 auto;
 
@@ -52,7 +52,7 @@
         }
     }
 
-    &__contact-container {
+    &__availability-container {
         width: 100%;
         border-top: 1px solid $Cloud;
         padding: 1rem 1.5rem 1.5rem 1.5rem;
@@ -61,6 +61,24 @@
             border: none;
             padding: 0 0 0 1.5rem;
         }
+    }
+
+    &__status-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+
+        @include tablet {
+            width: 60%;
+        }
+    }
+
+    &__radio-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
     }
 
     &__button-container {
@@ -74,7 +92,7 @@
             justify-content: end;
         }
     }
-
+    
     &__button {
         width: 100%;
 

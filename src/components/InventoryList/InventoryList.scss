@@ -1,0 +1,64 @@
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory-list {
+    &__labels--tablet{
+        display: none;
+        
+        
+        @include tablet{
+            background-color: $Light-Grey;
+            padding: 0.75rem 2rem;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    &__label--tablet{
+        width: 20%;
+
+        
+
+        @include tablet{
+           font-size: .75rem;
+           color: #5C667E;
+        }
+        &--action{
+            width: 20%;
+            text-align: right;
+        }
+    }
+}
+
+.inventory-wh{
+    &__status-container{ 
+        width: 50%;
+        max-width: 11.625rem;
+        margin-right: 0;
+
+    }
+
+    &__col-1{
+        @include tablet{
+            width: 45%;
+            max-width: 23.25rem
+        }
+    }
+    &__col-2{
+        @include tablet{
+            width: 45%;
+        }
+    }
+    &__info{
+        @include tablet{
+            margin-right: 0;
+            width: 50%;
+            max-width: 11.625rem;
+
+        }
+    }
+    &__label--tablet--action{
+        width: 15%;
+        text-align: right;
+    }
+}

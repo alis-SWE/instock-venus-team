@@ -2,24 +2,20 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 
-.warehouse {
+
+.inventory {
     border-bottom: 1px solid $Cloud;
     padding: 0 2rem;
     display: flex;
     color: #13182C;
     font-size: .8125rem;
     line-height: 1.25rem;
-    background-color: #fff;
-
+   
     @include tablet {
         align-items: center;
-        justify-content: space-between;
     }
 
-    &:hover &__arrow-icon{
-        transition: 0.2s;
-        transform: translateX(4px);
-    }
+
 
     &__col-1 { 
         display: flex;
@@ -29,12 +25,11 @@
         flex-direction: column;
         @include tablet {
             flex-direction: row;
-            width: 45%;
+            width: 33.33%;
             align-items: center;
             margin-right: 0rem;
             padding: 1rem 0;
         }
-      
     }
     &__col-2 { 
         display: flex;
@@ -44,57 +39,16 @@
         flex-direction: column;
         @include tablet {
             flex-direction: row;
-            width: 45%;
+            width: 50%;
             align-items: center;
             margin-left: 0;
             padding: 1rem 0;
         }
-      
-      
     }
-    &__id-container{
-        margin-bottom: 1rem;
-        @include tablet{
-
-            width: 212px;
-            margin-bottom: 0rem;
-
-
-
-        }
-    }
-    &__name-container{
-        margin-bottom: 1rem;
-        @include tablet{
-            width: 50%;
-            margin-bottom: 0rem;
-
-        }
-    }
-    &__address-container{
-        margin-bottom: 1.1875rem;
-        @include tablet{
-            width: 50%;
-            margin-bottom: 0rem;
-
-
-        }
-    }
-    &__info-container{
-        margin-bottom: 1.1875rem;
-        @include tablet{
-            width: 50%;
-            align-items: center;
-            margin-bottom: 0;
-
-        }
-    }
-
-
     &__actions-container{
         display: none;
         @include tablet {
-            width: 10%;
+            width: 16.66%;
             display: flex;
             justify-content: flex-end;
         }
@@ -106,6 +60,11 @@
             display: none;
         }
     }
+
+    &:hover &__arrow-icon{
+        transition: 0.2s;
+        transform: translateX(4px);
+    }
     &__edit{
         display: flex;
         justify-content:flex-end;
@@ -113,17 +72,59 @@
             display: none;
         }
     }
-    &__delete-img{
+    &__delete{
         max-width: 24px;
-        max-height: 24px;
+
         @include tablet {
             display: none;
         }
     }
-    &__edit-img{
-        max-width: 24px;
+    &__id-container{
+        margin-bottom: 1rem;
+        @include tablet{
+            width: 50%;
+            margin-bottom: 0rem;
+            margin-right: 1rem;
+
+
+        }
+    }
+    &__status-container{
+        @include tablet{
+            width: 50%;
+            margin-bottom: 0rem;
+            margin-right: 1rem;
+
+        }
+    }
+    &__address-container{
+        margin-bottom: 1.1875rem;
+        flex-grow: 1;
+        @include tablet{
+            width: 50%;
+            margin-bottom: 0rem;
+            margin-right: 1rem;
+
+
+        }
+    }
+    &__info-container{
+        margin-bottom: 1.1875rem;
+        @include tablet{
+            width: 50%;
+            align-items: center;
+            margin-bottom: 0;
+            margin-right: 1rem;
+
+        }
+    }
+    &__delete {
+        display: flex;
         max-height: 24px;
-        fill: black;
+        justify-content: flex-end;
+        @include tablet {
+            display: none;
+        }
     }
     &__delete--tablet{
         max-width: 24px;
@@ -131,11 +132,6 @@
         margin-right: 1rem;
   
     }
-
-}
-
-img {
-    cursor: pointer;
 }
 
 a {

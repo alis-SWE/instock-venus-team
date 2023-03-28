@@ -79,6 +79,7 @@
     padding: 2rem 1.5rem 1.5rem 1.5rem;
     border-bottom: 1px solid $Cloud;
     display: flex;
+    align-items: center;
     flex-direction: row;
     gap: 0.5rem;
   }
@@ -125,4 +126,14 @@
       justify-content: end;
     }
   }
+  &__cancel{
+    width: 50%;
+    @include tablet {
+      max-width: 4.375rem;
+    }
+  }
+  &__link{
+    display: flex;
+    align-items: center;
+}
 }

@@ -5,11 +5,8 @@
 .footer {
     width: 100%;
     background-color: $Light-Grey;
-
-    @include tablet {
-        // position: fixed;
-        // bottom: 0;
-    }
+    position: absolute;
+    bottom: 0;
     
     &__text{
         font-size: .6875rem;

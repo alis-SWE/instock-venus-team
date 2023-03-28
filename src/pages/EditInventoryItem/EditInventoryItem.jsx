@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useParams, Link } from "react-router-dom";
+import { Routes, Route, useParams, Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import CancelButton from "../../components/CancelButton/CancelButton";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 import "./EditInventoryItem.scss";
 import axios from "axios";
+import FormError from '../../components/FormError/FormError'
+import api from '../../utils/api'
+import validator from '../../utils/validator'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function EditInventoryItem() {
   const { id } = useParams();
@@ -16,8 +21,37 @@ export default function EditInventoryItem() {
     quantity: "",
     warehouse_id: "",
   });
+
+  const navigate = useNavigate();
+
   const [warehouseList, setWarehouseList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
+
+  const [errors, setErrors] = useState({
+    item_name: false,
+    description: false,
+    category: false,
+    status: false,
+    quantity: false,
+    warehouse_id: false,
+  })
+
+  const validateForm = () => {
+    setErrors({
+      item_name: formData.item_name.length < 2 || formData.item_name.length > 50,
+      description: formData.description.length < 2 || formData.description.length > 400,
+      category: formData.category.length < 2 || formData.category.length > 100,
+      status: formData.status.length < 2 || formData.status.length > 50,
+      quantity: !validator.isNumber(formData.quantity),
+      warehouse_id: formData.warehouse_id.length < 2 || formData.warehouse_id.length > 100,
+    })
+    return (Object.values(errors).every((value) => value === false))
+  }
+
+  useEffect(() => {
+    validateForm();
+  }, [formData]);
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -25,75 +59,85 @@ export default function EditInventoryItem() {
       ...prevFormData,
       [name]: value,
     }));
+    
+    if (formData.status === "Out of Stock") {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        ['quantity']: 0,
+      }));
+    }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (validateForm()) {
 
-    axios
-      .put(`http://localhost:8080/inventory/${id}`, formData)
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+      api.put(`/inventory/${id}`, formData)
+      .then(() => {
+        toast.success('Successfully updated item');
 
-  const getWarehouseList = () => {
-    axios
-      .get(`http://localhost:8080/warehouse/`)
-      .then((response) => {
-        setWarehouseList(response.data);
+        navigate("/inventory");
       })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
-  const getCategoryList = () => {
-    axios
-      .get(`http://localhost:8080/inventory/`)
-      .then((response) => {
-        const uniqueCategories = [];
-        response.data.forEach((item) => {
-          if (!uniqueCategories.includes(item.category)) {
-            uniqueCategories.push(item.category);
-          }
+        .catch((error) => {
+          console.error(error);
         });
-        setCategoryList(uniqueCategories);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    }
   };
 
-  const getWarehouseNameFromId = (wid) => {
-    let f = "Not found"
-    warehouseList.forEach((item) => {
-        if (item.id == wid) {
-          f = item.warehouse_name;
-          return;
+const getWarehouseList = () => {
+  api.get('/warehouse/')
+    .then((response) => {
+      setWarehouseList(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
+const getCategoryList = () => {
+  api.get('/inventory/')
+    .then((response) => {
+      const uniqueCategories = [];
+      response.data.forEach((item) => {
+        if (!uniqueCategories.includes(item.category)) {
+          uniqueCategories.push(item.category);
         }
       });
-      return f;
-  }
+      setCategoryList(uniqueCategories);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
-  useEffect(() => {
-    getWarehouseList();
-    getCategoryList();
-    axios
-      .get(`http://localhost:8080/inventory/${id}`)
-      .then((response) => {
-        setFormData(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+const getWarehouseNameFromId = (wid) => {
+  let f = "Not found"
+  warehouseList.forEach((item) => {
+    if (item.id == wid) {
+      f = item.warehouse_name;
+      return;
+    }
+  });
+  return f;
+}
+
+useEffect(() => {
+  getWarehouseList();
+  getCategoryList();
+  api.get(`/inventory/${id}`)
+    .then((response) => {
+      setFormData(response.data);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}, []);
 
   return (
     <section className="edit-invitm-page">
       <div className="edit-invitm-page__container">
         <div className="edit-invitm-page__header-container">
-          <Link to={"/"}>
+          <Link to={"/inventory"} className="edit-invitm-page__link">
             <img src={backArrow} alt="back arrow" />
           </Link>
           <h1>Edit Inventory Item</h1>
@@ -110,6 +154,7 @@ export default function EditInventoryItem() {
                 value={formData.item_name}
                 onChange={handleInputChange}
               />
+              <FormError showError={errors.item_name}/>
               <h3>Description</h3>
               <textarea
                 id="item-street-address"
@@ -119,6 +164,7 @@ export default function EditInventoryItem() {
                 value={formData.description}
                 onChange={handleInputChange}
               />
+              <FormError showError={errors.description}/>
               <h3>Category</h3>
               <select
                 id="item-city"
@@ -135,6 +181,7 @@ export default function EditInventoryItem() {
                   </option>
                 ))}
               </select>
+              <FormError showError={errors.category}/>
             </div>
             <div className="edit-invitm-page__contact-container">
               <h2>Item Availability</h2>
@@ -167,6 +214,7 @@ export default function EditInventoryItem() {
                   Out of stock
                 </label>
               </div>
+              <FormError showError={errors.status}/>
               {formData.status === "In Stock" && (
                 <div>
                   <h3>Quantity</h3>
@@ -177,8 +225,11 @@ export default function EditInventoryItem() {
                     value={formData.quantity}
                     onChange={handleInputChange}
                   />
+                  <FormError showError={errors.quantity}/>
                 </div>
+                
               )}
+              
               <h3>Warehouse</h3>
               <select
                 id="item-phone-number"
@@ -194,13 +245,14 @@ export default function EditInventoryItem() {
                   </option>
                 ))}
               </select>
+              <FormError showError={errors.warehouse_id}/>
             </div>
           </div>
           <div className="edit-invitm-page__button-container">
-            <Link to={"/"}>
+            <Link to={"/inventory"} className="edit-invitm-page__cancel">
               <CancelButton />
             </Link>
-            <Button buttonText="Save" type="submit" />
+            <Button buttonText="Save" type="submit" isHalf={true}/>
           </div>
         </form>
       </div>
